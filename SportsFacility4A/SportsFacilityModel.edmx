@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SportsFacilitiesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SportsFacilities.dbo.Availability' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Availability">
+          <Key>
+            <PropertyRef Name="VenueID" />
+          </Key>
+          <Property Name="VenueID" Type="int" Nullable="false" />
+          <Property Name="9am" Type="bit" />
+          <Property Name="10am" Type="bit" />
+          <Property Name="11am" Type="bit" />
+          <Property Name="12pm" Type="bit" />
+          <Property Name="1pm" Type="bit" />
+          <Property Name="2pm" Type="bit" />
+          <Property Name="3pm" Type="bit" />
+          <Property Name="4pm" Type="bit" />
+          <Property Name="5pm" Type="bit" />
+        </EntityType>
+        <EntityType Name="BookingTransaction">
+          <Key>
+            <PropertyRef Name="BookingID" />
+          </Key>
+          <Property Name="BookingID" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="VenueID" Type="int" />
+          <Property Name="DateCreated" Type="date" />
+          <Property Name="BookedDate" Type="date" />
+          <Property Name="BookedHour" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerAddress" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Notes" Type="varchar" MaxLength="100" />
+          <Property Name="MemberCategory" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Venue">
+          <Key>
+            <PropertyRef Name="VenueID" />
+          </Key>
+          <Property Name="VenueID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VenueName" Type="varchar" MaxLength="50" />
+          <Property Name="VenueAddress" Type="varchar" MaxLength="100" />
+          <Property Name="Category" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Availability_Venue">
+          <End Role="Venue" Type="Self.Venue" Multiplicity="1" />
+          <End Role="Availability" Type="Self.Availability" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Venue">
+              <PropertyRef Name="VenueID" />
+            </Principal>
+            <Dependent Role="Availability">
+              <PropertyRef Name="VenueID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookingTransaction_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="BookingTransaction" Type="Self.BookingTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="BookingTransaction">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookingTransaction_Venue">
+          <End Role="Venue" Type="Self.Venue" Multiplicity="0..1" />
+          <End Role="BookingTransaction" Type="Self.BookingTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Venue">
+              <PropertyRef Name="VenueID" />
+            </Principal>
+            <Dependent Role="BookingTransaction">
+              <PropertyRef Name="VenueID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SportsFacilitiesModelStoreContainer">
+          <EntitySet Name="BookingTransaction" EntityType="Self.BookingTransaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Venue" EntityType="Self.Venue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Availability" EntityType="Self.Availability" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Availability].[VenueID] AS [VenueID], 
+    [Availability].[9am] AS [9am], 
+    [Availability].[10am] AS [10am], 
+    [Availability].[11am] AS [11am], 
+    [Availability].[12pm] AS [12pm], 
+    [Availability].[1pm] AS [1pm], 
+    [Availability].[2pm] AS [2pm], 
+    [Availability].[3pm] AS [3pm], 
+    [Availability].[4pm] AS [4pm], 
+    [Availability].[5pm] AS [5pm]
+    FROM [dbo].[Availability] AS [Availability]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Availability_Venue" Association="Self.FK_Availability_Venue">
+            <End Role="Venue" EntitySet="Venue" />
+            <End Role="Availability" EntitySet="Availability" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingTransaction_Customers" Association="Self.FK_BookingTransaction_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="BookingTransaction" EntitySet="BookingTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingTransaction_Venue" Association="Self.FK_BookingTransaction_Venue">
+            <End Role="Venue" EntitySet="Venue" />
+            <End Role="BookingTransaction" EntitySet="BookingTransaction" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SportsFacilitiesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BookingTransaction">
+          <Key>
+            <PropertyRef Name="BookingID" />
+          </Key>
+          <Property Name="BookingID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="VenueID" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Precision="0" />
+          <Property Name="BookedDate" Type="DateTime" Precision="0" />
+          <Property Name="BookedHour" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_BookingTransaction_Customers" FromRole="BookingTransaction" ToRole="Customers" />
+          <NavigationProperty Name="Venue" Relationship="Self.FK_BookingTransaction_Venue" FromRole="BookingTransaction" ToRole="Venue" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Notes" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MemberCategory" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BookingTransaction" Relationship="Self.FK_BookingTransaction_Customers" FromRole="Customers" ToRole="BookingTransaction" />
+        </EntityType>
+        <EntityType Name="Venue">
+          <Key>
+            <PropertyRef Name="VenueID" />
+          </Key>
+          <Property Name="VenueID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VenueName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VenueAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BookingTransaction" Relationship="Self.FK_BookingTransaction_Venue" FromRole="Venue" ToRole="BookingTransaction" />
+          <NavigationProperty Name="Availability" Relationship="Self.FK_Availability_Venue" FromRole="Venue" ToRole="Availability" />
+        </EntityType>
+        <EntityType Name="Availability">
+          <Key>
+            <PropertyRef Name="VenueID" />
+          </Key>
+          <Property Name="VenueID" Type="Int32" Nullable="false" />
+          <Property Name="C9am" Type="Boolean" />
+          <Property Name="C10am" Type="Boolean" />
+          <Property Name="C11am" Type="Boolean" />
+          <Property Name="C12pm" Type="Boolean" />
+          <Property Name="C1pm" Type="Boolean" />
+          <Property Name="C2pm" Type="Boolean" />
+          <Property Name="C3pm" Type="Boolean" />
+          <Property Name="C4pm" Type="Boolean" />
+          <Property Name="C5pm" Type="Boolean" />
+          <NavigationProperty Name="Venue" Relationship="Self.FK_Availability_Venue" FromRole="Availability" ToRole="Venue" />
+        </EntityType>
+        <Association Name="FK_BookingTransaction_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="BookingTransaction" Type="Self.BookingTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="BookingTransaction">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookingTransaction_Venue">
+          <End Role="Venue" Type="Self.Venue" Multiplicity="0..1" />
+          <End Role="BookingTransaction" Type="Self.BookingTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Venue">
+              <PropertyRef Name="VenueID" />
+            </Principal>
+            <Dependent Role="BookingTransaction">
+              <PropertyRef Name="VenueID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Availability_Venue">
+          <End Role="Venue" Type="Self.Venue" Multiplicity="1" />
+          <End Role="Availability" Type="Self.Availability" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Venue">
+              <PropertyRef Name="VenueID" />
+            </Principal>
+            <Dependent Role="Availability">
+              <PropertyRef Name="VenueID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SportsFacilitiesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BookingTransaction" EntityType="Self.BookingTransaction" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" />
+          <EntitySet Name="Venue" EntityType="Self.Venue" />
+          <EntitySet Name="Availability" EntityType="Self.Availability" />
+          <AssociationSet Name="FK_BookingTransaction_Customers" Association="Self.FK_BookingTransaction_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="BookingTransaction" EntitySet="BookingTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookingTransaction_Venue" Association="Self.FK_BookingTransaction_Venue">
+            <End Role="Venue" EntitySet="Venue" />
+            <End Role="BookingTransaction" EntitySet="BookingTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Availability_Venue" Association="Self.FK_Availability_Venue">
+            <End Role="Venue" EntitySet="Venue" />
+            <End Role="Availability" EntitySet="Availability" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SportsFacilitiesModelStoreContainer" CdmEntityContainer="SportsFacilitiesEntities">
+          <EntitySetMapping Name="BookingTransaction">
+            <EntityTypeMapping TypeName="SportsFacilitiesModel.BookingTransaction">
+              <MappingFragment StoreEntitySet="BookingTransaction">
+                <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="VenueID" ColumnName="VenueID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="BookedDate" ColumnName="BookedDate" />
+                <ScalarProperty Name="BookedHour" ColumnName="BookedHour" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="SportsFacilitiesModel.Customers">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="MemberCategory" ColumnName="MemberCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Venue">
+            <EntityTypeMapping TypeName="SportsFacilitiesModel.Venue">
+              <MappingFragment StoreEntitySet="Venue">
+                <ScalarProperty Name="VenueID" ColumnName="VenueID" />
+                <ScalarProperty Name="VenueName" ColumnName="VenueName" />
+                <ScalarProperty Name="VenueAddress" ColumnName="VenueAddress" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Availability">
+            <EntityTypeMapping TypeName="SportsFacilitiesModel.Availability">
+              <MappingFragment StoreEntitySet="Availability">
+                <ScalarProperty Name="VenueID" ColumnName="VenueID" />
+                <ScalarProperty Name="C9am" ColumnName="9am" />
+                <ScalarProperty Name="C10am" ColumnName="10am" />
+                <ScalarProperty Name="C11am" ColumnName="11am" />
+                <ScalarProperty Name="C12pm" ColumnName="12pm" />
+                <ScalarProperty Name="C1pm" ColumnName="1pm" />
+                <ScalarProperty Name="C2pm" ColumnName="2pm" />
+                <ScalarProperty Name="C3pm" ColumnName="3pm" />
+                <ScalarProperty Name="C4pm" ColumnName="4pm" />
+                <ScalarProperty Name="C5pm" ColumnName="5pm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

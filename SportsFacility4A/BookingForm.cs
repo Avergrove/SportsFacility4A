@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace SportsFacility4A
 {
-    public partial class Form1 : Form
+    public partial class BookingForm : Form
     {
-        public Form1()
+        public BookingForm()
         {
             InitializeComponent();
+        }
+
+        private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
