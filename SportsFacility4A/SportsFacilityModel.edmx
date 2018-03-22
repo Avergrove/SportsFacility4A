@@ -5,8 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="SportsFacilitiesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'SportsFacilities.dbo.Availability' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Availability">
           <Key>
             <PropertyRef Name="VenueID" />
@@ -94,23 +92,10 @@ warning 6002: The table/view 'SportsFacilities.dbo.Availability' does not have a
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="SportsFacilitiesModelStoreContainer">
+          <EntitySet Name="Availability" EntityType="Self.Availability" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BookingTransaction" EntityType="Self.BookingTransaction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Venue" EntityType="Self.Venue" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Availability" EntityType="Self.Availability" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Availability].[VenueID] AS [VenueID], 
-    [Availability].[9am] AS [9am], 
-    [Availability].[10am] AS [10am], 
-    [Availability].[11am] AS [11am], 
-    [Availability].[12pm] AS [12pm], 
-    [Availability].[1pm] AS [1pm], 
-    [Availability].[2pm] AS [2pm], 
-    [Availability].[3pm] AS [3pm], 
-    [Availability].[4pm] AS [4pm], 
-    [Availability].[5pm] AS [5pm]
-    FROM [dbo].[Availability] AS [Availability]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Availability_Venue" Association="Self.FK_Availability_Venue">
             <End Role="Venue" EntitySet="Venue" />
             <End Role="Availability" EntitySet="Availability" />
@@ -129,6 +114,22 @@ warning 6002: The table/view 'SportsFacilities.dbo.Availability' does not have a
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SportsFacilitiesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Availability">
+          <Key>
+            <PropertyRef Name="VenueID" />
+          </Key>
+          <Property Name="VenueID" Type="Int32" Nullable="false" />
+          <Property Name="C9am" Type="Boolean" />
+          <Property Name="C10am" Type="Boolean" />
+          <Property Name="C11am" Type="Boolean" />
+          <Property Name="C12pm" Type="Boolean" />
+          <Property Name="C1pm" Type="Boolean" />
+          <Property Name="C2pm" Type="Boolean" />
+          <Property Name="C3pm" Type="Boolean" />
+          <Property Name="C4pm" Type="Boolean" />
+          <Property Name="C5pm" Type="Boolean" />
+          <NavigationProperty Name="Venue" Relationship="Self.FK_Availability_Venue" FromRole="Availability" ToRole="Venue" />
+        </EntityType>
         <EntityType Name="BookingTransaction">
           <Key>
             <PropertyRef Name="BookingID" />
@@ -166,25 +167,21 @@ warning 6002: The table/view 'SportsFacilities.dbo.Availability' does not have a
           <Property Name="VenueName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="VenueAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="BookingTransaction" Relationship="Self.FK_BookingTransaction_Venue" FromRole="Venue" ToRole="BookingTransaction" />
           <NavigationProperty Name="Availability" Relationship="Self.FK_Availability_Venue" FromRole="Venue" ToRole="Availability" />
+          <NavigationProperty Name="BookingTransaction" Relationship="Self.FK_BookingTransaction_Venue" FromRole="Venue" ToRole="BookingTransaction" />
         </EntityType>
-        <EntityType Name="Availability">
-          <Key>
-            <PropertyRef Name="VenueID" />
-          </Key>
-          <Property Name="VenueID" Type="Int32" Nullable="false" />
-          <Property Name="C9am" Type="Boolean" />
-          <Property Name="C10am" Type="Boolean" />
-          <Property Name="C11am" Type="Boolean" />
-          <Property Name="C12pm" Type="Boolean" />
-          <Property Name="C1pm" Type="Boolean" />
-          <Property Name="C2pm" Type="Boolean" />
-          <Property Name="C3pm" Type="Boolean" />
-          <Property Name="C4pm" Type="Boolean" />
-          <Property Name="C5pm" Type="Boolean" />
-          <NavigationProperty Name="Venue" Relationship="Self.FK_Availability_Venue" FromRole="Availability" ToRole="Venue" />
-        </EntityType>
+        <Association Name="FK_Availability_Venue">
+          <End Role="Venue" Type="Self.Venue" Multiplicity="1" />
+          <End Role="Availability" Type="Self.Availability" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Venue">
+              <PropertyRef Name="VenueID" />
+            </Principal>
+            <Dependent Role="Availability">
+              <PropertyRef Name="VenueID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_BookingTransaction_Customers">
           <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
           <End Role="BookingTransaction" Type="Self.BookingTransaction" Multiplicity="*" />
@@ -209,23 +206,15 @@ warning 6002: The table/view 'SportsFacilities.dbo.Availability' does not have a
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Availability_Venue">
-          <End Role="Venue" Type="Self.Venue" Multiplicity="1" />
-          <End Role="Availability" Type="Self.Availability" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Venue">
-              <PropertyRef Name="VenueID" />
-            </Principal>
-            <Dependent Role="Availability">
-              <PropertyRef Name="VenueID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="SportsFacilitiesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Availability" EntityType="Self.Availability" />
           <EntitySet Name="BookingTransaction" EntityType="Self.BookingTransaction" />
           <EntitySet Name="Customers" EntityType="Self.Customers" />
           <EntitySet Name="Venue" EntityType="Self.Venue" />
-          <EntitySet Name="Availability" EntityType="Self.Availability" />
+          <AssociationSet Name="FK_Availability_Venue" Association="Self.FK_Availability_Venue">
+            <End Role="Venue" EntitySet="Venue" />
+            <End Role="Availability" EntitySet="Availability" />
+          </AssociationSet>
           <AssociationSet Name="FK_BookingTransaction_Customers" Association="Self.FK_BookingTransaction_Customers">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="BookingTransaction" EntitySet="BookingTransaction" />
@@ -234,10 +223,6 @@ warning 6002: The table/view 'SportsFacilities.dbo.Availability' does not have a
             <End Role="Venue" EntitySet="Venue" />
             <End Role="BookingTransaction" EntitySet="BookingTransaction" />
           </AssociationSet>
-          <AssociationSet Name="FK_Availability_Venue" Association="Self.FK_Availability_Venue">
-            <End Role="Venue" EntitySet="Venue" />
-            <End Role="Availability" EntitySet="Availability" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -245,6 +230,22 @@ warning 6002: The table/view 'SportsFacilities.dbo.Availability' does not have a
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SportsFacilitiesModelStoreContainer" CdmEntityContainer="SportsFacilitiesEntities">
+          <EntitySetMapping Name="Availability">
+            <EntityTypeMapping TypeName="SportsFacilitiesModel.Availability">
+              <MappingFragment StoreEntitySet="Availability">
+                <ScalarProperty Name="VenueID" ColumnName="VenueID" />
+                <ScalarProperty Name="C9am" ColumnName="9am" />
+                <ScalarProperty Name="C10am" ColumnName="10am" />
+                <ScalarProperty Name="C11am" ColumnName="11am" />
+                <ScalarProperty Name="C12pm" ColumnName="12pm" />
+                <ScalarProperty Name="C1pm" ColumnName="1pm" />
+                <ScalarProperty Name="C2pm" ColumnName="2pm" />
+                <ScalarProperty Name="C3pm" ColumnName="3pm" />
+                <ScalarProperty Name="C4pm" ColumnName="4pm" />
+                <ScalarProperty Name="C5pm" ColumnName="5pm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="BookingTransaction">
             <EntityTypeMapping TypeName="SportsFacilitiesModel.BookingTransaction">
               <MappingFragment StoreEntitySet="BookingTransaction">
@@ -280,22 +281,6 @@ warning 6002: The table/view 'SportsFacilities.dbo.Availability' does not have a
                 <ScalarProperty Name="VenueName" ColumnName="VenueName" />
                 <ScalarProperty Name="VenueAddress" ColumnName="VenueAddress" />
                 <ScalarProperty Name="Category" ColumnName="Category" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Availability">
-            <EntityTypeMapping TypeName="SportsFacilitiesModel.Availability">
-              <MappingFragment StoreEntitySet="Availability">
-                <ScalarProperty Name="VenueID" ColumnName="VenueID" />
-                <ScalarProperty Name="C9am" ColumnName="9am" />
-                <ScalarProperty Name="C10am" ColumnName="10am" />
-                <ScalarProperty Name="C11am" ColumnName="11am" />
-                <ScalarProperty Name="C12pm" ColumnName="12pm" />
-                <ScalarProperty Name="C1pm" ColumnName="1pm" />
-                <ScalarProperty Name="C2pm" ColumnName="2pm" />
-                <ScalarProperty Name="C3pm" ColumnName="3pm" />
-                <ScalarProperty Name="C4pm" ColumnName="4pm" />
-                <ScalarProperty Name="C5pm" ColumnName="5pm" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

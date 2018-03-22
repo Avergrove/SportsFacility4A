@@ -33,6 +33,9 @@
             this.Main_MaintenanceButton = new System.Windows.Forms.Button();
             this.Main_ReportButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetAvailabilityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -77,11 +80,28 @@
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(726, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.resetAvailabilityToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(125, 20);
+            this.toolStripMenuItem1.Text = "toolStripMenuItem1";
+            // 
+            // resetAvailabilityToolStripMenuItem
+            // 
+            this.resetAvailabilityToolStripMenuItem.Name = "resetAvailabilityToolStripMenuItem";
+            this.resetAvailabilityToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.resetAvailabilityToolStripMenuItem.Text = "Reset Availability";
+            this.resetAvailabilityToolStripMenuItem.Click += new System.EventHandler(this.resetAvailabilityToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -97,6 +117,8 @@
             this.Name = "MainForm";
             this.Text = "Sports Facility Booking";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,6 +130,8 @@
         private System.Windows.Forms.Button Main_MaintenanceButton;
         private System.Windows.Forms.Button Main_ReportButton;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem resetAvailabilityToolStripMenuItem;
     }
 }
 

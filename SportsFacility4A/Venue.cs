@@ -25,8 +25,8 @@ namespace SportsFacility4A
         public string VenueAddress { get; set; }
         public string Category { get; set; }
     
+        public virtual Availability Availability { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BookingTransaction> BookingTransaction { get; set; }
-        public virtual Availability Availability { get; set; }
     }
 }

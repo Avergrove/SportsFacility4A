@@ -28,8 +28,8 @@ namespace SportsFacility4A
         private void BookingForm_Load(object sender, EventArgs e)
         {
             context = new SportsFacilitiesEntities();
-            var query = from x in context.Customers select x;
-            var dataset = query.ToList<Customers>();
+            var query = from x in context.Availability select x;
+            var dataset = query.ToList<Availability>();
 
             searchDataGrid.DataSource = dataset;
         }

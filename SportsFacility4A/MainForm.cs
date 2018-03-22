@@ -13,6 +13,7 @@ namespace SportsFacility4A
     public partial class MainForm : Form
     {
 
+        SportsFacilitiesEntities context = new SportsFacilitiesEntities();
 
         public MainForm()
         {
@@ -53,6 +54,26 @@ namespace SportsFacility4A
         {
 
 
+        }
+
+        private void resetAvailabilityToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            var AvailabilityQuery = from x in context.Availability select x;
+            var availabilities = AvailabilityQuery.ToList<Availability>();
+
+            foreach(Availability a in availabilities)
+            {
+                a.C9am = false;
+                a.C10am = false;
+                a.C11am = false;
+                a.C12pm = false;
+                a.C1pm = false;
+                a.C2pm = false;
+                a.C3pm = false;
+                a.C4pm = false;
+                a.C5pm = false;
+            }
         }
     }
 }

@@ -25,9 +25,9 @@ namespace SportsFacility4A
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Availability> Availability { get; set; }
         public virtual DbSet<BookingTransaction> BookingTransaction { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<Venue> Venue { get; set; }
-        public virtual DbSet<Availability> Availability { get; set; }
     }
 }
