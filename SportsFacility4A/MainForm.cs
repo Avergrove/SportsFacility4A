@@ -12,6 +12,8 @@ namespace SportsFacility4A
 {
     public partial class MainForm : Form
     {
+
+
         public MainForm()
         {
             InitializeComponent();
@@ -45,6 +47,12 @@ namespace SportsFacility4A
             reportGenerationForm.FormClosing += delegate { this.Show(); this.Close(); };
             reportGenerationForm.Show();
             this.Hide();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+
         }
     }
 }

@@ -12,6 +12,9 @@ namespace SportsFacility4A
 {
     public partial class BookingForm : Form
     {
+
+        SportsFacilitiesEntities context;
+
         public BookingForm()
         {
             InitializeComponent();
@@ -20,6 +23,15 @@ namespace SportsFacility4A
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void BookingForm_Load(object sender, EventArgs e)
+        {
+            context = new SportsFacilitiesEntities();
+            var query = from x in context.Customers select x;
+            var dataset = query.ToList<Customers>();
+
+            searchDataGrid.DataSource = dataset;
         }
     }
 }
