@@ -38,17 +38,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(659, 419);
+            this.label1.Location = new System.Drawing.Point(1318, 806);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(110, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Beta Build";
             // 
             // Main_BookingButton
             // 
-            this.Main_BookingButton.Location = new System.Drawing.Point(335, 133);
+            this.Main_BookingButton.Location = new System.Drawing.Point(670, 256);
+            this.Main_BookingButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Main_BookingButton.Name = "Main_BookingButton";
-            this.Main_BookingButton.Size = new System.Drawing.Size(92, 23);
+            this.Main_BookingButton.Size = new System.Drawing.Size(184, 44);
             this.Main_BookingButton.TabIndex = 2;
             this.Main_BookingButton.Text = "Booking";
             this.Main_BookingButton.UseVisualStyleBackColor = true;
@@ -56,9 +58,10 @@
             // 
             // Main_MaintenanceButton
             // 
-            this.Main_MaintenanceButton.Location = new System.Drawing.Point(335, 208);
+            this.Main_MaintenanceButton.Location = new System.Drawing.Point(506, 398);
+            this.Main_MaintenanceButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Main_MaintenanceButton.Name = "Main_MaintenanceButton";
-            this.Main_MaintenanceButton.Size = new System.Drawing.Size(92, 23);
+            this.Main_MaintenanceButton.Size = new System.Drawing.Size(184, 44);
             this.Main_MaintenanceButton.TabIndex = 3;
             this.Main_MaintenanceButton.Text = "Maintenance";
             this.Main_MaintenanceButton.UseVisualStyleBackColor = true;
@@ -66,9 +69,10 @@
             // 
             // Main_ReportButton
             // 
-            this.Main_ReportButton.Location = new System.Drawing.Point(335, 279);
+            this.Main_ReportButton.Location = new System.Drawing.Point(670, 537);
+            this.Main_ReportButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Main_ReportButton.Name = "Main_ReportButton";
-            this.Main_ReportButton.Size = new System.Drawing.Size(92, 23);
+            this.Main_ReportButton.Size = new System.Drawing.Size(184, 44);
             this.Main_ReportButton.TabIndex = 4;
             this.Main_ReportButton.Text = "Report Generation";
             this.Main_ReportButton.UseVisualStyleBackColor = true;
@@ -79,21 +83,23 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(726, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(12, 4, 0, 4);
+            this.menuStrip1.Size = new System.Drawing.Size(1452, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(726, 441);
+            this.ClientSize = new System.Drawing.Size(1452, 848);
             this.Controls.Add(this.Main_ReportButton);
             this.Controls.Add(this.Main_MaintenanceButton);
             this.Controls.Add(this.Main_BookingButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "MainForm";
             this.Text = "Sports Facility Booking";
             this.Load += new System.EventHandler(this.MainForm_Load);
