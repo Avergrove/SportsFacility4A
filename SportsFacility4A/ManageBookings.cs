@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SportsFacility4A
 {
-    public partial class Form1 : Form
+    public partial class Managebookings : Form
     {
-        public Form1()
+        public Managebookings()
         {
             InitializeComponent();
         }
