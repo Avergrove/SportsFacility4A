@@ -75,6 +75,12 @@
     <Compile Include="Customers.cs">
       <DependentUpon>SportsFacilityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="BookingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookingList.Designer.cs">
+      <DependentUpon>BookingList.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageBookings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Customer Search Screen.resx">
       <DependentUpon>Customer Search Screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookingList.resx">
+      <DependentUpon>BookingList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

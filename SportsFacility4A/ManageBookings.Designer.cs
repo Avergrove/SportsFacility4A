@@ -30,14 +30,15 @@
         {
             this.cidsearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.FacilityCB = new System.Windows.Forms.ComboBox();
+            this.VenueCB = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.TimeSlotCB = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.CustNameTextBox = new System.Windows.Forms.TextBox();
             this.cancelbookingbtn = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.SuspendLayout();
             // 
             // cidsearch
@@ -49,6 +50,7 @@
             this.cidsearch.TabIndex = 19;
             this.cidsearch.Text = "...";
             this.cidsearch.UseVisualStyleBackColor = true;
+            this.cidsearch.Click += new System.EventHandler(this.cidsearch_Click);
             // 
             // label1
             // 
@@ -60,21 +62,23 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Facility";
             // 
-            // comboBox1
+            // FacilityCB
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(266, 146);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(291, 28);
-            this.comboBox1.TabIndex = 20;
+            this.FacilityCB.FormattingEnabled = true;
+            this.FacilityCB.Location = new System.Drawing.Point(266, 146);
+            this.FacilityCB.Name = "FacilityCB";
+            this.FacilityCB.Size = new System.Drawing.Size(291, 28);
+            this.FacilityCB.TabIndex = 20;
+            this.FacilityCB.SelectionChangeCommitted += new System.EventHandler(this.FacilityCB_SelectionChangeCommitted);
             // 
-            // comboBox2
+            // VenueCB
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(266, 211);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(291, 28);
-            this.comboBox2.TabIndex = 22;
+            this.VenueCB.FormattingEnabled = true;
+            this.VenueCB.Location = new System.Drawing.Point(266, 211);
+            this.VenueCB.Name = "VenueCB";
+            this.VenueCB.Size = new System.Drawing.Size(291, 28);
+            this.VenueCB.TabIndex = 22;
+            this.VenueCB.SelectionChangeCommitted += new System.EventHandler(this.VenueCB_SelectionChangeCommitted);
             // 
             // label2
             // 
@@ -86,13 +90,14 @@
             this.label2.TabIndex = 21;
             this.label2.Text = "Venue";
             // 
-            // comboBox3
+            // TimeSlotCB
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(266, 270);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(291, 28);
-            this.comboBox3.TabIndex = 24;
+            this.TimeSlotCB.FormattingEnabled = true;
+            this.TimeSlotCB.Location = new System.Drawing.Point(266, 270);
+            this.TimeSlotCB.Name = "TimeSlotCB";
+            this.TimeSlotCB.Size = new System.Drawing.Size(291, 28);
+            this.TimeSlotCB.TabIndex = 24;
+            this.TimeSlotCB.SelectionChangeCommitted += new System.EventHandler(this.TimeSlotCB_SelectionChangeCommitted);
             // 
             // label3
             // 
@@ -114,13 +119,13 @@
             this.label4.TabIndex = 25;
             this.label4.Text = "Customer Name";
             // 
-            // textBox1
+            // CustNameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(266, 336);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(291, 26);
-            this.textBox1.TabIndex = 26;
+            this.CustNameTextBox.Location = new System.Drawing.Point(266, 336);
+            this.CustNameTextBox.Name = "CustNameTextBox";
+            this.CustNameTextBox.ReadOnly = true;
+            this.CustNameTextBox.Size = new System.Drawing.Size(291, 26);
+            this.CustNameTextBox.TabIndex = 26;
             // 
             // cancelbookingbtn
             // 
@@ -130,24 +135,36 @@
             this.cancelbookingbtn.TabIndex = 27;
             this.cancelbookingbtn.Text = "Cancel Booking";
             this.cancelbookingbtn.UseVisualStyleBackColor = true;
+            this.cancelbookingbtn.Click += new System.EventHandler(this.cancelbookingbtn_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 474);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(869, 22);
+            this.statusStrip1.TabIndex = 28;
+            this.statusStrip1.Text = "statusStrip1";
             // 
             // Managebookings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(869, 496);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.cancelbookingbtn);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.CustNameTextBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.TimeSlotCB);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.VenueCB);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.FacilityCB);
             this.Controls.Add(this.cidsearch);
             this.Controls.Add(this.label1);
             this.Name = "Managebookings";
             this.Text = "Manage Bookings";
+            this.Load += new System.EventHandler(this.Managebookings_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,13 +174,14 @@
 
         private System.Windows.Forms.Button cidsearch;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox FacilityCB;
+        private System.Windows.Forms.ComboBox VenueCB;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox TimeSlotCB;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox CustNameTextBox;
         private System.Windows.Forms.Button cancelbookingbtn;
+        private System.Windows.Forms.StatusStrip statusStrip1;
     }
 }
