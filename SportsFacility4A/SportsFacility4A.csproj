@@ -110,6 +110,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SportsFacilityModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Venue Maintenance Screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Venue Maintenance Screen.Designer.cs">
+      <DependentUpon>Venue Maintenance Screen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Venue.cs">
       <DependentUpon>SportsFacilityModel.tt</DependentUpon>
     </Compile>
@@ -131,6 +137,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Venue Maintenance Screen.resx">
+      <DependentUpon>Venue Maintenance Screen.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.Config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
