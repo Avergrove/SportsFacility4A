@@ -57,6 +57,12 @@
     <Compile Include="Availability.cs">
       <DependentUpon>SportsFacilityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="BookingConfirmationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookingConfirmationForm.Designer.cs">
+      <DependentUpon>BookingConfirmationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BookingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     <Compile Include="Venue.cs">
       <DependentUpon>SportsFacilityModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BookingConfirmationForm.resx">
+      <DependentUpon>BookingConfirmationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BookingForm.resx">
       <DependentUpon>BookingForm.cs</DependentUpon>
     </EmbeddedResource>
