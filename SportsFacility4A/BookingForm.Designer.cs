@@ -48,9 +48,6 @@
             this.C3pm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C4pm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C5pm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.RemarkTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.AvailabilityDataGrid)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -153,7 +150,7 @@
             // BookingButton
             // 
             this.BookingButton.Enabled = false;
-            this.BookingButton.Location = new System.Drawing.Point(538, 359);
+            this.BookingButton.Location = new System.Drawing.Point(457, 369);
             this.BookingButton.Name = "BookingButton";
             this.BookingButton.Size = new System.Drawing.Size(95, 23);
             this.BookingButton.TabIndex = 12;
@@ -230,39 +227,11 @@
             this.C5pm.ReadOnly = true;
             this.C5pm.Width = 50;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(77, 389);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(197, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Note: Booking will be made for tomorrow";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(77, 364);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Remarks";
-            // 
-            // RemarkTextBox
-            // 
-            this.RemarkTextBox.Location = new System.Drawing.Point(132, 359);
-            this.RemarkTextBox.Name = "RemarkTextBox";
-            this.RemarkTextBox.Size = new System.Drawing.Size(230, 20);
-            this.RemarkTextBox.TabIndex = 15;
-            // 
             // BookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 461);
-            this.Controls.Add(this.RemarkTextBox);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.BookingButton);
             this.Controls.Add(this.AddressLabel);
             this.Controls.Add(this.label3);
@@ -305,8 +274,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn C3pm;
         private System.Windows.Forms.DataGridViewTextBoxColumn C4pm;
         private System.Windows.Forms.DataGridViewTextBoxColumn C5pm;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox RemarkTextBox;
     }
 }

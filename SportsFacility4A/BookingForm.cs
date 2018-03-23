@@ -92,8 +92,6 @@ namespace SportsFacility4A
 
             // Repopulate the table.
             AvailabilityDataGrid.Rows.Clear();
-            var firstQ = AvailabilityQuery.First();
-            Console.WriteLine(firstQ.ToString() +  "\nVenue ID: " + firstQ.availabilities.VenueID + "\nVenue Name: " + firstQ.venues.VenueName + "\n9am: " + firstQ.availabilities.C9am);
             foreach(var v in AvailabilityQuery)
             {
                 AvailabilityDataGrid.Rows.Add(v.venues.VenueName, this.AvailabilityBoolToString(v.availabilities.C9am), this.AvailabilityBoolToString(v.availabilities.C10am), this.AvailabilityBoolToString(v.availabilities.C11am), this.AvailabilityBoolToString(v.availabilities.C12pm), this.AvailabilityBoolToString(v.availabilities.C1pm), this.AvailabilityBoolToString(v.availabilities.C2pm), this.AvailabilityBoolToString(v.availabilities.C3pm), this.AvailabilityBoolToString(v.availabilities.C4pm), this.AvailabilityBoolToString(v.availabilities.C5pm));
@@ -104,6 +102,10 @@ namespace SportsFacility4A
         private void BookingButton_Click(object sender, EventArgs e)
         {
             var selection = AvailabilityDataGrid.SelectedCells;
+            if(selection[0].ColumnIndex > 0)
+            {
+                Console.WriteLine(selection[0].ToString());
+            }
 
             // Get information for selected venue
             var query = from x in context.Availability
@@ -117,14 +119,9 @@ namespace SportsFacility4A
                                     };
 
             var v = query.First();
-
-            DateTime bookedTime = DateTime.Now;
-            bookedTime = bookedTime.AddDays(1);
-
-
+           
             // public BookingConfirmationForm(String category, String name, String address):
-            // BookingConfirmationForm bookingConfirmationForm = new BookingConfirmationForm(v.venues.Category, v.venues.VenueName, v.venues.VenueAddress, GetTimeSlot(), DateTime.Now);
-            BookingConfirmationForm bookingConfirmationForm = new BookingConfirmationForm(v.venues.VenueID, GetTimeSlot(), bookedTime, RemarkTextBox.Text);
+            BookingConfirmationForm bookingConfirmationForm = new BookingConfirmationForm(v.venues.Category, v.venues.VenueName, v.venues.VenueAddress, GetTimeSlot(), DateTime.Now);
             bookingConfirmationForm.Location = this.Location;
             bookingConfirmationForm.StartPosition = FormStartPosition.Manual;
             bookingConfirmationForm.FormClosing += delegate { this.Show(); };
@@ -138,6 +135,7 @@ namespace SportsFacility4A
         private void availabilityDataGrid_SelectionChanged(object sender, EventArgs e)
         {
             var selection = AvailabilityDataGrid.CurrentCell;
+            Console.WriteLine(selection.RowIndex.ToString() + ", " + selection.ColumnIndex.ToString());
             if (selection.ColumnIndex > 0)
             {
                 BookingButton.Enabled = true;
