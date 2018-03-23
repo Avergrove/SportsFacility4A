@@ -71,7 +71,7 @@
             // 
             // Main_ReportButton
             // 
-            this.Main_ReportButton.Location = new System.Drawing.Point(335, 311);
+            this.Main_ReportButton.Location = new System.Drawing.Point(335, 286);
             this.Main_ReportButton.Margin = new System.Windows.Forms.Padding(6);
             this.Main_ReportButton.Name = "Main_ReportButton";
             this.Main_ReportButton.Size = new System.Drawing.Size(92, 23);

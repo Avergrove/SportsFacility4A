@@ -33,5 +33,10 @@ namespace SportsFacility4A
 
             searchDataGrid.DataSource = dataset;
         }
+
+        private void ActivityBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

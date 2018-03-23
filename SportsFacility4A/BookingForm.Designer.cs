@@ -30,12 +30,12 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ActivityComboBox = new System.Windows.Forms.ComboBox();
             this.searchDataGrid = new System.Windows.Forms.DataGridView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.VenueComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.searchDataGrid)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -58,18 +58,19 @@
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // ActivityComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.ActivityComboBox.FormattingEnabled = true;
+            this.ActivityComboBox.Items.AddRange(new object[] {
             "Badminton",
             "Tennis",
             "Table Tennis"});
-            this.comboBox1.Location = new System.Drawing.Point(80, 75);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(153, 21);
-            this.comboBox1.TabIndex = 6;
-            this.comboBox1.SelectedValueChanged += new System.EventHandler(this.comboBox1_SelectedValueChanged);
+            this.ActivityComboBox.Location = new System.Drawing.Point(80, 75);
+            this.ActivityComboBox.Name = "ActivityComboBox";
+            this.ActivityComboBox.Size = new System.Drawing.Size(153, 21);
+            this.ActivityComboBox.TabIndex = 6;
+            this.ActivityComboBox.SelectedIndexChanged += new System.EventHandler(this.ActivityBox_SelectedIndexChanged);
+            this.ActivityComboBox.SelectedValueChanged += new System.EventHandler(this.comboBox1_SelectedValueChanged);
             // 
             // searchDataGrid
             // 
@@ -104,17 +105,17 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Venue";
             // 
-            // comboBox2
+            // VenueComboBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.VenueComboBox.FormattingEnabled = true;
+            this.VenueComboBox.Items.AddRange(new object[] {
             "Badminton",
             "Tennis",
             "Table Tennis"});
-            this.comboBox2.Location = new System.Drawing.Point(263, 75);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(142, 21);
-            this.comboBox2.TabIndex = 7;
+            this.VenueComboBox.Location = new System.Drawing.Point(263, 75);
+            this.VenueComboBox.Name = "VenueComboBox";
+            this.VenueComboBox.Size = new System.Drawing.Size(142, 21);
+            this.VenueComboBox.TabIndex = 7;
             // 
             // BookingForm
             // 
@@ -123,8 +124,8 @@
             this.ClientSize = new System.Drawing.Size(740, 489);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.searchDataGrid);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.VenueComboBox);
+            this.Controls.Add(this.ActivityComboBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -143,11 +144,11 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox ActivityComboBox;
         private System.Windows.Forms.DataGridView searchDataGrid;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox VenueComboBox;
     }
 }
