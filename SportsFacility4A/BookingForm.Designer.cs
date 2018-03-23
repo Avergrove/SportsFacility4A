@@ -43,22 +43,23 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(116, 91);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(155, 114);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 20);
+            this.label1.Size = new System.Drawing.Size(81, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Activity";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(120, 180);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button1.Location = new System.Drawing.Point(160, 225);
+            this.button1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 35);
+            this.button1.Size = new System.Drawing.Size(149, 44);
             this.button1.TabIndex = 5;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox1
             // 
@@ -67,20 +68,20 @@
             "Badminton",
             "Tennis",
             "Table Tennis"});
-            this.comboBox1.Location = new System.Drawing.Point(120, 115);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comboBox1.Location = new System.Drawing.Point(160, 144);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(228, 28);
+            this.comboBox1.Size = new System.Drawing.Size(303, 33);
             this.comboBox1.TabIndex = 6;
             this.comboBox1.SelectedValueChanged += new System.EventHandler(this.comboBox1_SelectedValueChanged);
             // 
             // searchDataGrid
             // 
             this.searchDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.searchDataGrid.Location = new System.Drawing.Point(120, 248);
-            this.searchDataGrid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.searchDataGrid.Location = new System.Drawing.Point(160, 310);
+            this.searchDataGrid.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.searchDataGrid.Name = "searchDataGrid";
-            this.searchDataGrid.Size = new System.Drawing.Size(800, 368);
+            this.searchDataGrid.Size = new System.Drawing.Size(1067, 460);
             this.searchDataGrid.TabIndex = 8;
             // 
             // statusStrip1
@@ -88,26 +89,26 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 722);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 903);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 21, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1110, 30);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(3, 0, 28, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1480, 37);
             this.statusStrip1.TabIndex = 9;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(106, 25);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(143, 32);
             this.toolStripStatusLabel1.Text = "Status Panel";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(390, 91);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(520, 114);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 20);
+            this.label2.Size = new System.Drawing.Size(74, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Venue";
             // 
@@ -118,17 +119,17 @@
             "Badminton",
             "Tennis",
             "Table Tennis"});
-            this.comboBox2.Location = new System.Drawing.Point(394, 115);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comboBox2.Location = new System.Drawing.Point(525, 144);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(211, 28);
+            this.comboBox2.Size = new System.Drawing.Size(280, 33);
             this.comboBox2.TabIndex = 7;
             // 
             // BookingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1110, 752);
+            this.ClientSize = new System.Drawing.Size(1480, 940);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.searchDataGrid);
             this.Controls.Add(this.comboBox2);
@@ -136,7 +137,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "BookingForm";
             this.Text = "Booking Form";
             this.Load += new System.EventHandler(this.BookingForm_Load);

@@ -28,9 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // ReportGenerationForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1190, 623);
+            this.Name = "ReportGenerationForm";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.ReportGenerationForm_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

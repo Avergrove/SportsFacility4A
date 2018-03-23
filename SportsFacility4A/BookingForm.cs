@@ -33,5 +33,10 @@ namespace SportsFacility4A
 
             searchDataGrid.DataSource = dataset;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

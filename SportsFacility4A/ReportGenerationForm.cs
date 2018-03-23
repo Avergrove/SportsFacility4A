@@ -16,5 +16,11 @@ namespace SportsFacility4A
         {
             InitializeComponent();
         }
+
+        private void ReportGenerationForm_Load(object sender, EventArgs e)
+        {
+        
+        
+        }
     }
 }
