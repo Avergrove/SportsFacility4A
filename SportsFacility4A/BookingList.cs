@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace SportsFacility4A
 {
-    public delegate void DataStringHandler(string facility, string venuename, string timeslot, string custname);
+    public delegate void DataStringHandler(string facility, string venuename, string timeslot, string custname, string bookingid);
     public partial class BookingList : Form
     {
         SportsFacilitiesEntities ctx = new SportsFacilitiesEntities();
 
         public event DataStringHandler DataSent;
-        string facility, venuename, timeslot, custname;
+        string facility, venuename, timeslot, custname, bookingid;
         public BookingList()
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace SportsFacility4A
             var q = from x in ctx.BookingTransaction
                     join y in ctx.Customers on x.CustomerID equals y.CustomerID
                     join z in ctx.Venue on x.VenueID equals z.VenueID
-                    where x.BookedDate>DateTime.Today.Date
+                    where x.BookedDate>DateTime.Today.Date && x.Status=="Confirmed"
                     select new
                     { x.BookingID, z.Category,z.VenueName, y.CustomerName, x.DateCreated, x.BookedDate, x.BookedHour, x.Status, x.Remark };
             bkinglistGridView.DataSource = q.ToList();
@@ -35,14 +35,14 @@ namespace SportsFacility4A
 
         private void mb_okbtn_Click(object sender, EventArgs e)
         {
-            DataSent(facility, venuename, timeslot, custname);
+            DataSent(facility, venuename, timeslot, custname,bookingid);
             Close();
         }
 
         private void bkinglistGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             RetrieveData();
-            DataSent(facility, venuename, timeslot, custname);
+            DataSent(facility, venuename, timeslot, custname,bookingid);
             Close();
         }
 
@@ -57,6 +57,7 @@ namespace SportsFacility4A
             venuename = bkinglistGridView.CurrentRow.Cells[2].Value.ToString();
             custname = bkinglistGridView.CurrentRow.Cells[3].Value.ToString();
             timeslot = bkinglistGridView.CurrentRow.Cells[6].Value.ToString();
+            bookingid = bkinglistGridView.CurrentRow.Cells[0].Value.ToString();
         }
 
         private void bkinglistGridView_CellClick(object sender, DataGridViewCellEventArgs e)
