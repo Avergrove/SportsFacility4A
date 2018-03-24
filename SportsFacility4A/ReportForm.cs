@@ -95,5 +95,17 @@ namespace SportsFacility4A
             this.ClientSize = new System.Drawing.Size(1000, 1000);
 
         }
+
+        private void peakHourAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //sf = new Sportsfacilities();
+            //SportsfacilitiesTableAdapters.peakhourTableAdapter ta = new SportsfacilitiesTableAdapters.peakhourTableAdapter();
+            //ta.Fill(sf.peakhour);
+
+            //topbookingvenue cr = new topbookingvenue();
+            //cr.SetDataSource(sf);
+            //crystalReportViewer1.ReportSource = cr;
+            //DisplayResults();
+        }
     }
 }

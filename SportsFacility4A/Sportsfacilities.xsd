@@ -369,7 +369,7 @@ SELECT VenueID, VenueName, VenueAddress, Category FROM Venue WHERE (VenueID = @V
               <DbSource ConnectionRef="SportsFacilitiesConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT b.VenueID, b.BookedDate, b.BookedHour, b.CustomerID, b.Status, v.VenueName
+                    <CommandText>SELECT b.VenueID, b.BookedDate, b.BookedHour, b.CustomerID, b.Status, v.VenueName, b.BookingID
 FROM  BookingTransaction AS b INNER JOIN
          Venue AS v ON b.VenueID = v.VenueID
 WHERE (b.Status IN
@@ -388,6 +388,7 @@ WHERE (b.Status IN
               <Mapping SourceColumn="Status" DataSetColumn="Status" />
               <Mapping SourceColumn="VenueName" DataSetColumn="VenueName" />
               <Mapping SourceColumn="CustomerID" DataSetColumn="CustomerID" />
+              <Mapping SourceColumn="BookingID" DataSetColumn="BookingID" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -413,6 +414,32 @@ WHERE (b.Status IN
               <Mapping SourceColumn="MemberCategory" DataSetColumn="MemberCategory" />
               <Mapping SourceColumn="BookedDate" DataSetColumn="BookedDate" />
               <Mapping SourceColumn="BookedHour" DataSetColumn="BookedHour" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="peakhourTableAdapter" GeneratorDataComponentClassName="peakhourTableAdapter" Name="peakhour" UserDataComponentName="peakhourTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SportsFacilitiesConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT b.VenueID, b.BookedHour, v.VenueName, b.BookingID
+FROM  Customers AS c INNER JOIN
+         BookingTransaction AS b ON c.CustomerID = b.CustomerID CROSS JOIN
+         Venue AS v
+WHERE (b.Status IN
+             (SELECT Status
+            FROM  BookingTransaction
+            WHERE (Status = 'confirmed')))</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="VenueID" DataSetColumn="VenueID" />
+              <Mapping SourceColumn="BookedHour" DataSetColumn="BookedHour" />
+              <Mapping SourceColumn="VenueName" DataSetColumn="VenueName" />
+              <Mapping SourceColumn="BookingID" DataSetColumn="BookingID" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -578,6 +605,7 @@ WHERE (b.Status IN
                 </xs:simpleType>
               </xs:element>
               <xs:element name="CustomerID" msprop:Generator_ColumnVarNameInTable="columnCustomerID" msprop:Generator_ColumnPropNameInRow="CustomerID" msprop:Generator_ColumnPropNameInTable="CustomerIDColumn" msprop:Generator_UserColumnName="CustomerID" type="xs:int" minOccurs="0" />
+              <xs:element name="BookingID" msprop:Generator_ColumnVarNameInTable="columnBookingID" msprop:Generator_ColumnPropNameInRow="BookingID" msprop:Generator_ColumnPropNameInTable="BookingIDColumn" msprop:Generator_UserColumnName="BookingID" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -603,6 +631,28 @@ WHERE (b.Status IN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="peakhour" msprop:Generator_TableClassName="peakhourDataTable" msprop:Generator_TableVarName="tablepeakhour" msprop:Generator_RowChangedName="peakhourRowChanged" msprop:Generator_TablePropName="peakhour" msprop:Generator_RowDeletingName="peakhourRowDeleting" msprop:Generator_RowChangingName="peakhourRowChanging" msprop:Generator_RowEvHandlerName="peakhourRowChangeEventHandler" msprop:Generator_RowDeletedName="peakhourRowDeleted" msprop:Generator_RowClassName="peakhourRow" msprop:Generator_UserTableName="peakhour" msprop:Generator_RowEvArgName="peakhourRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="VenueID" msprop:Generator_ColumnVarNameInTable="columnVenueID" msprop:Generator_ColumnPropNameInRow="VenueID" msprop:Generator_ColumnPropNameInTable="VenueIDColumn" msprop:Generator_UserColumnName="VenueID" type="xs:int" minOccurs="0" />
+              <xs:element name="BookedHour" msprop:Generator_ColumnVarNameInTable="columnBookedHour" msprop:Generator_ColumnPropNameInRow="BookedHour" msprop:Generator_ColumnPropNameInTable="BookedHourColumn" msprop:Generator_UserColumnName="BookedHour" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VenueName" msprop:Generator_ColumnVarNameInTable="columnVenueName" msprop:Generator_ColumnPropNameInRow="VenueName" msprop:Generator_ColumnPropNameInTable="VenueNameColumn" msprop:Generator_UserColumnName="VenueName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookingID" msprop:Generator_ColumnVarNameInTable="columnBookingID" msprop:Generator_ColumnPropNameInRow="BookingID" msprop:Generator_ColumnPropNameInTable="BookingIDColumn" msprop:Generator_UserColumnName="BookingID" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -621,6 +671,14 @@ WHERE (b.Status IN
       <xs:selector xpath=".//mstns:Venue" />
       <xs:field xpath="mstns:VenueID" />
     </xs:unique>
+    <xs:unique name="Reportbookingtxn_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Reportbookingtxn" />
+      <xs:field xpath="mstns:BookingID" />
+    </xs:unique>
+    <xs:unique name="peakhour_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:peakhour" />
+      <xs:field xpath="mstns:BookingID" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
@@ -630,6 +688,7 @@ WHERE (b.Status IN
       <msdata:Relationship name="FK_BookingTransaction_Venue1" msdata:parent="Venue" msdata:child="Reportbookingtxn" msdata:parentkey="VenueID" msdata:childkey="VenueID" msprop:Generator_UserChildTable="Reportbookingtxn" msprop:Generator_ChildPropName="GetReportbookingtxnRows" msprop:Generator_UserRelationName="FK_BookingTransaction_Venue1" msprop:Generator_RelationVarName="relationFK_BookingTransaction_Venue1" msprop:Generator_UserParentTable="Venue" msprop:Generator_ParentPropName="VenueRow" />
       <msdata:Relationship name="FK_BookingTransaction_Customers1" msdata:parent="Customers" msdata:child="Reportbookingtxn" msdata:parentkey="CustomerID" msdata:childkey="CustomerID" msprop:Generator_UserChildTable="Reportbookingtxn" msprop:Generator_ChildPropName="GetReportbookingtxnRows" msprop:Generator_UserRelationName="FK_BookingTransaction_Customers1" msprop:Generator_RelationVarName="relationFK_BookingTransaction_Customers1" msprop:Generator_UserParentTable="Customers" msprop:Generator_ParentPropName="CustomersRow" />
       <msdata:Relationship name="FK_BookingTransaction_Customers2" msdata:parent="Customers" msdata:child="Trendchart" msdata:parentkey="CustomerID" msdata:childkey="CustomerID" msprop:Generator_UserChildTable="Trendchart" msprop:Generator_ChildPropName="GetTrendchartRows" msprop:Generator_UserRelationName="FK_BookingTransaction_Customers2" msprop:Generator_ParentPropName="CustomersRow" msprop:Generator_RelationVarName="relationFK_BookingTransaction_Customers2" msprop:Generator_UserParentTable="Customers" />
+      <msdata:Relationship name="FK_BookingTransaction_Venue2" msdata:parent="Venue" msdata:child="peakhour" msdata:parentkey="VenueID" msdata:childkey="VenueID" msprop:Generator_UserChildTable="peakhour" msprop:Generator_ChildPropName="GetpeakhourRows" msprop:Generator_UserRelationName="FK_BookingTransaction_Venue2" msprop:Generator_RelationVarName="relationFK_BookingTransaction_Venue2" msprop:Generator_UserParentTable="Venue" msprop:Generator_ParentPropName="VenueRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

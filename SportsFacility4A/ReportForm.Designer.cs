@@ -33,6 +33,7 @@
             this.memberListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.demograhpicTrendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.peakHourAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -53,9 +54,10 @@
             this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.memberListToolStripMenuItem,
             this.bookingToolStripMenuItem,
-            this.demograhpicTrendToolStripMenuItem});
+            this.demograhpicTrendToolStripMenuItem,
+            this.peakHourAnalysisToolStripMenuItem});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
-            this.reportToolStripMenuItem.Size = new System.Drawing.Size(97, 38);
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(97, 36);
             this.reportToolStripMenuItem.Text = "Report";
             // 
             // memberListToolStripMenuItem
@@ -69,7 +71,7 @@
             // 
             this.bookingToolStripMenuItem.Name = "bookingToolStripMenuItem";
             this.bookingToolStripMenuItem.Size = new System.Drawing.Size(324, 38);
-            this.bookingToolStripMenuItem.Text = "Booking";
+            this.bookingToolStripMenuItem.Text = "Booking Analysis";
             this.bookingToolStripMenuItem.Click += new System.EventHandler(this.bookingToolStripMenuItem_Click);
             // 
             // demograhpicTrendToolStripMenuItem
@@ -78,6 +80,13 @@
             this.demograhpicTrendToolStripMenuItem.Size = new System.Drawing.Size(324, 38);
             this.demograhpicTrendToolStripMenuItem.Text = "Demograhpic trend";
             this.demograhpicTrendToolStripMenuItem.Click += new System.EventHandler(this.demograhpicTrendToolStripMenuItem_Click);
+            // 
+            // peakHourAnalysisToolStripMenuItem
+            // 
+            this.peakHourAnalysisToolStripMenuItem.Name = "peakHourAnalysisToolStripMenuItem";
+            this.peakHourAnalysisToolStripMenuItem.Size = new System.Drawing.Size(324, 38);
+            this.peakHourAnalysisToolStripMenuItem.Text = "Peak Hour Analysis";
+            this.peakHourAnalysisToolStripMenuItem.Click += new System.EventHandler(this.peakHourAnalysisToolStripMenuItem_Click);
             // 
             // crystalReportViewer1
             // 
@@ -117,5 +126,6 @@
         private System.Windows.Forms.ToolStripMenuItem bookingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem demograhpicTrendToolStripMenuItem;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private System.Windows.Forms.ToolStripMenuItem peakHourAnalysisToolStripMenuItem;
     }
 }
