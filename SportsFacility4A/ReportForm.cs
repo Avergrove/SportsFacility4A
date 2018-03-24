@@ -45,6 +45,15 @@ namespace SportsFacility4A
         private void bookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+            //create dataset reportbooktxn 
+            //SELECT b.VenueID, b.BookedDate, b.BookedHour, b.CustomerID, b.Status, v.VenueName
+            //  FROM BookingTransaction AS b INNER JOIN
+            //   Venue AS v ON b.VenueID = v.VenueID
+            //WHERE(b.Status IN
+            //  (SELECT Status
+            //  FROM  BookingTransaction
+            //  WHERE(Status = 'confirmed')))
+
             sf = new Sportsfacilities();
             SportsfacilitiesTableAdapters.ReportbookingtxnTableAdapter ta = new SportsfacilitiesTableAdapters.ReportbookingtxnTableAdapter();
             ta.Fill(sf.Reportbookingtxn);
@@ -58,6 +67,16 @@ namespace SportsFacility4A
 
         private void demograhpicTrendToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //create dataset trendchart 
+            //SELECT b.CustomerID, c.MemberCategory, b.BookedDate, b.BookedHour
+            //FROM BookingTransaction AS b INNER JOIN
+            //Customers AS c ON b.CustomerID = c.CustomerID
+             //WHERE(b.Status IN
+            //(SELECT Status
+            // FROM  BookingTransaction
+            // WHERE(Status = 'confirmed')))
+
+
             sf = new Sportsfacilities();
             SportsfacilitiesTableAdapters.TrendchartTableAdapter ta = new SportsfacilitiesTableAdapters.TrendchartTableAdapter();
             ta.Fill(sf.Trendchart);
