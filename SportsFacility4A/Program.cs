@@ -16,7 +16,7 @@ namespace SportsFacility4A
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ReportGenerationForm());
+            Application.Run(new ReportForm());
         }
     }
 }

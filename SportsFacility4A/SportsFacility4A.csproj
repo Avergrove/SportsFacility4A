@@ -76,17 +76,17 @@
     <Compile Include="Customers.cs">
       <DependentUpon>SportsFacilityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="demographic.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>demographic.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MaintenanceForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MaintenanceForm.Designer.cs">
       <DependentUpon>MaintenanceForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReportGenerationForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReportGenerationForm.Designer.cs">
-      <DependentUpon>ReportGenerationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -96,6 +96,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm.Designer.cs">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="sfbkreport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -128,17 +134,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SportsFacilityModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="trendreport.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>trendreport.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Venue.cs">
       <DependentUpon>SportsFacilityModel.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="BookingForm.resx">
       <DependentUpon>BookingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="demographic.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>demographic.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -155,8 +159,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ReportGenerationForm.resx">
-      <DependentUpon>ReportGenerationForm.cs</DependentUpon>
+    <EmbeddedResource Include="ReportForm.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sfbkreport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -165,10 +169,6 @@
     <EmbeddedResource Include="SFCustomer.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SFCustomer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="trendreport.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>trendreport.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.Config" />
     <None Include="packages.config" />

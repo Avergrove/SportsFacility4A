@@ -42,12 +42,12 @@ namespace SportsFacility4A
 
         private void Main_ReportButton_Click(object sender, EventArgs e)
         {
-            ReportGenerationForm reportGenerationForm = new ReportGenerationForm();
-            reportGenerationForm.Location = this.Location;
-            reportGenerationForm.StartPosition = FormStartPosition.Manual;
-            reportGenerationForm.FormClosing += delegate { this.Show(); this.Close(); };
-            reportGenerationForm.Show();
-            this.Hide();
+            ////ReportGenerationForm reportGenerationForm = new ReportGenerationForm();
+            //reportGenerationForm.Location = this.Location;
+            //reportGenerationForm.StartPosition = FormStartPosition.Manual;
+            //reportGenerationForm.FormClosing += delegate { this.Show(); this.Close(); };
+            //reportGenerationForm.Show();
+            //this.Hide();
         }
 
         private void MainForm_Load(object sender, EventArgs e)

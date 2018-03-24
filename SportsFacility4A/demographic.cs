@@ -16,14 +16,14 @@ namespace SportsFacility4A {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class trendreport : ReportClass {
+    public class demographic : ReportClass {
         
-        public trendreport() {
+        public demographic() {
         }
         
         public override string ResourceName {
             get {
-                return "trendreport.rpt";
+                return "demographic.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace SportsFacility4A {
         
         public override string FullResourceName {
             get {
-                return "SportsFacility4A.trendreport.rpt";
+                return "SportsFacility4A.demographic.rpt";
             }
             set {
                 // Do nothing
@@ -106,9 +106,9 @@ namespace SportsFacility4A {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class Cachedtrendreport : Component, ICachedReport {
+    public class Cacheddemographic : Component, ICachedReport {
         
-        public Cachedtrendreport() {
+        public Cacheddemographic() {
         }
         
         [Browsable(false)]
@@ -145,7 +145,7 @@ namespace SportsFacility4A {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            trendreport rpt = new trendreport();
+            demographic rpt = new demographic();
             rpt.Site = this.Site;
             return rpt;
         }
