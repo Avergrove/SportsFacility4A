@@ -44,9 +44,9 @@
 			this.updatebutton = new System.Windows.Forms.Button();
 			this.createbutton = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
+			this.Status = new System.Windows.Forms.Label();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
-			this.label4 = new System.Windows.Forms.Label();
+			this.Notes = new System.Windows.Forms.Label();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
@@ -61,50 +61,55 @@
 			// CustName
 			// 
 			this.CustName.AutoSize = true;
+			this.CustName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.CustName.Location = new System.Drawing.Point(288, 203);
 			this.CustName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.CustName.Name = "CustName";
-			this.CustName.Size = new System.Drawing.Size(51, 20);
+			this.CustName.Size = new System.Drawing.Size(55, 20);
 			this.CustName.TabIndex = 2;
 			this.CustName.Text = "Name";
 			// 
 			// Phone
 			// 
 			this.Phone.AutoSize = true;
+			this.Phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Phone.Location = new System.Drawing.Point(288, 270);
 			this.Phone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.Phone.Name = "Phone";
-			this.Phone.Size = new System.Drawing.Size(55, 20);
+			this.Phone.Size = new System.Drawing.Size(60, 20);
 			this.Phone.TabIndex = 3;
 			this.Phone.Text = "Phone";
 			// 
 			// Address
 			// 
 			this.Address.AutoSize = true;
+			this.Address.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Address.Location = new System.Drawing.Point(288, 349);
 			this.Address.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.Address.Name = "Address";
-			this.Address.Size = new System.Drawing.Size(68, 20);
+			this.Address.Size = new System.Drawing.Size(75, 20);
 			this.Address.TabIndex = 5;
 			this.Address.Text = "Address";
 			// 
 			// Email
 			// 
 			this.Email.AutoSize = true;
+			this.Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Email.Location = new System.Drawing.Point(288, 411);
 			this.Email.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.Email.Name = "Email";
-			this.Email.Size = new System.Drawing.Size(48, 20);
+			this.Email.Size = new System.Drawing.Size(53, 20);
 			this.Email.TabIndex = 7;
 			this.Email.Text = "Email";
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(288, 137);
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(288, 143);
 			this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(26, 20);
+			this.label1.Size = new System.Drawing.Size(28, 20);
 			this.label1.TabIndex = 9;
 			this.label1.Text = "ID";
 			// 
@@ -115,6 +120,8 @@
 			this.CIDtextbox.Name = "CIDtextbox";
 			this.CIDtextbox.Size = new System.Drawing.Size(245, 26);
 			this.CIDtextbox.TabIndex = 10;
+			this.CIDtextbox.TextChanged += new System.EventHandler(this.CIDtextbox_TextChanged);
+			this.CIDtextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CIDtextbox_KeyDown);
 			// 
 			// phonetextbox
 			// 
@@ -151,10 +158,11 @@
 			// Age
 			// 
 			this.Age.AutoSize = true;
+			this.Age.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Age.Location = new System.Drawing.Point(288, 484);
 			this.Age.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.Age.Name = "Age";
-			this.Age.Size = new System.Drawing.Size(38, 20);
+			this.Age.Size = new System.Drawing.Size(41, 20);
 			this.Age.TabIndex = 15;
 			this.Age.Text = "Age";
 			// 
@@ -197,14 +205,15 @@
 			this.label2.TabIndex = 20;
 			this.label2.Text = "Customer Maintenance screen";
 			// 
-			// label3
+			// Status
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(285, 545);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(56, 20);
-			this.label3.TabIndex = 21;
-			this.label3.Text = "Status";
+			this.Status.AutoSize = true;
+			this.Status.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Status.Location = new System.Drawing.Point(285, 545);
+			this.Status.Name = "Status";
+			this.Status.Size = new System.Drawing.Size(62, 20);
+			this.Status.TabIndex = 21;
+			this.Status.Text = "Status";
 			// 
 			// comboBox1
 			// 
@@ -215,14 +224,15 @@
 			this.comboBox1.TabIndex = 22;
 			this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
 			// 
-			// label4
+			// Notes
 			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(285, 601);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(51, 20);
-			this.label4.TabIndex = 23;
-			this.label4.Text = "Notes";
+			this.Notes.AutoSize = true;
+			this.Notes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Notes.Location = new System.Drawing.Point(285, 601);
+			this.Notes.Name = "Notes";
+			this.Notes.Size = new System.Drawing.Size(56, 20);
+			this.Notes.TabIndex = 23;
+			this.Notes.Text = "Notes";
 			// 
 			// textBox1
 			// 
@@ -238,9 +248,9 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(991, 719);
 			this.Controls.Add(this.textBox1);
-			this.Controls.Add(this.label4);
+			this.Controls.Add(this.Notes);
 			this.Controls.Add(this.comboBox1);
-			this.Controls.Add(this.label3);
+			this.Controls.Add(this.Status);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.createbutton);
 			this.Controls.Add(this.updatebutton);
@@ -283,9 +293,9 @@
         private System.Windows.Forms.Button updatebutton;
 		private System.Windows.Forms.Button createbutton;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label Status;
 		private System.Windows.Forms.ComboBox comboBox1;
-		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label Notes;
 		private System.Windows.Forms.TextBox textBox1;
 	}
 }
