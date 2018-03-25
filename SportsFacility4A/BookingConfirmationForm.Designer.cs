@@ -34,13 +34,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.RemarkLabel = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.TimeSlotLabel = new System.Windows.Forms.Label();
             this.DateLabel = new System.Windows.Forms.Label();
             this.AddressLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.CategoryLabel = new System.Windows.Forms.Label();
             this.ConfirmButton = new System.Windows.Forms.Button();
-            this.ReturnButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -62,8 +63,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.CustomerIdLabel = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.RemarkLabel = new System.Windows.Forms.Label();
+            this.ReturnButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -133,6 +133,24 @@
             this.panel1.Size = new System.Drawing.Size(340, 272);
             this.panel1.TabIndex = 5;
             // 
+            // RemarkLabel
+            // 
+            this.RemarkLabel.AutoSize = true;
+            this.RemarkLabel.Location = new System.Drawing.Point(192, 219);
+            this.RemarkLabel.Name = "RemarkLabel";
+            this.RemarkLabel.Size = new System.Drawing.Size(10, 13);
+            this.RemarkLabel.TabIndex = 11;
+            this.RemarkLabel.Text = "-";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(66, 219);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 13);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Remark";
+            // 
             // TimeSlotLabel
             // 
             this.TimeSlotLabel.AutoSize = true;
@@ -187,16 +205,6 @@
             this.ConfirmButton.Text = "Confirm";
             this.ConfirmButton.UseVisualStyleBackColor = true;
             this.ConfirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);
-            // 
-            // ReturnButton
-            // 
-            this.ReturnButton.Location = new System.Drawing.Point(265, 394);
-            this.ReturnButton.Name = "ReturnButton";
-            this.ReturnButton.Size = new System.Drawing.Size(75, 23);
-            this.ReturnButton.TabIndex = 7;
-            this.ReturnButton.Text = "Return";
-            this.ReturnButton.UseVisualStyleBackColor = true;
-            this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
             // label6
             // 
@@ -399,23 +407,15 @@
             this.label14.TabIndex = 10;
             this.label14.Text = "Id";
             // 
-            // label8
+            // ReturnButton
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(66, 219);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 13);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Remark";
-            // 
-            // RemarkLabel
-            // 
-            this.RemarkLabel.AutoSize = true;
-            this.RemarkLabel.Location = new System.Drawing.Point(192, 219);
-            this.RemarkLabel.Name = "RemarkLabel";
-            this.RemarkLabel.Size = new System.Drawing.Size(10, 13);
-            this.RemarkLabel.TabIndex = 11;
-            this.RemarkLabel.Text = "-";
+            this.ReturnButton.Location = new System.Drawing.Point(265, 394);
+            this.ReturnButton.Name = "ReturnButton";
+            this.ReturnButton.Size = new System.Drawing.Size(75, 23);
+            this.ReturnButton.TabIndex = 7;
+            this.ReturnButton.Text = "Return";
+            this.ReturnButton.UseVisualStyleBackColor = true;
+            this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
             // BookingConfirmationForm
             // 
@@ -456,7 +456,6 @@
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label CategoryLabel;
         private System.Windows.Forms.Button ConfirmButton;
-        private System.Windows.Forms.Button ReturnButton;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
@@ -480,5 +479,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label RemarkLabel;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button ReturnButton;
     }
 }

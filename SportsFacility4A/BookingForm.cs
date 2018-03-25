@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 // Written by Chua Khiong Yang
+// Code written for the main form, of the booking form, where you select venue and time slot
 
 namespace SportsFacility4A
 {
@@ -55,10 +56,11 @@ namespace SportsFacility4A
 
             String selectedActivity = ActivityComboBox.SelectedItem.ToString();
 
-
             var query = from x in context.Venue where x.Category == selectedActivity select x;
             var dataset = query.ToList<Venue>();
 
+            VenueComboBox.Items.Clear();
+            VenueComboBox.SelectedIndex = -1;
             foreach (Venue v in dataset)
             {
 
@@ -69,12 +71,24 @@ namespace SportsFacility4A
                 
             }
 
+            StatusLabel.Text = "Please select a venue for your reservation.";
         }
 
 
         // Shows address of the venue, and populate the Datagrid with relevant time slots.
         private void VenueComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            RefreshAvailabilityDataGrid();
+
+            StatusLabel.Text = "Next, select a free timeslot from the list.";
+        }
+
+        // UTILITY: Refreshes the Avaialability datagrid.
+        private void RefreshAvailabilityDataGrid()
+        {
+
+            context = new SportsFacilitiesEntities();
 
             var AddressQuery = from x in context.Venue where x.VenueName == VenueComboBox.SelectedItem.ToString() select x;
             AddressLabel.Text = AddressQuery.First<Venue>().VenueAddress;
@@ -92,13 +106,14 @@ namespace SportsFacility4A
 
             // Repopulate the table.
             AvailabilityDataGrid.Rows.Clear();
+
             var firstQ = AvailabilityQuery.First();
-            Console.WriteLine(firstQ.ToString() +  "\nVenue ID: " + firstQ.availabilities.VenueID + "\nVenue Name: " + firstQ.venues.VenueName + "\n9am: " + firstQ.availabilities.C9am);
-            foreach(var v in AvailabilityQuery)
+            Console.WriteLine(firstQ.ToString() + "\nVenue ID: " + firstQ.availabilities.VenueID + "\nVenue Name: " + firstQ.venues.VenueName + "\n9am: " + firstQ.availabilities.C9am);
+            AvailabilityDataGrid.Rows.Clear();
+            foreach (var v in AvailabilityQuery)
             {
                 AvailabilityDataGrid.Rows.Add(v.venues.VenueName, this.AvailabilityBoolToString(v.availabilities.C9am), this.AvailabilityBoolToString(v.availabilities.C10am), this.AvailabilityBoolToString(v.availabilities.C11am), this.AvailabilityBoolToString(v.availabilities.C12pm), this.AvailabilityBoolToString(v.availabilities.C1pm), this.AvailabilityBoolToString(v.availabilities.C2pm), this.AvailabilityBoolToString(v.availabilities.C3pm), this.AvailabilityBoolToString(v.availabilities.C4pm), this.AvailabilityBoolToString(v.availabilities.C5pm));
             }
-            
         }
 
         private void BookingButton_Click(object sender, EventArgs e)
@@ -127,7 +142,7 @@ namespace SportsFacility4A
             BookingConfirmationForm bookingConfirmationForm = new BookingConfirmationForm(v.venues.VenueID, GetTimeSlot(), bookedTime, RemarkTextBox.Text);
             bookingConfirmationForm.Location = this.Location;
             bookingConfirmationForm.StartPosition = FormStartPosition.Manual;
-            bookingConfirmationForm.FormClosing += delegate { this.Show(); };
+            bookingConfirmationForm.FormClosing += delegate { this.Show(); this.RefreshAvailabilityDataGrid();};
             bookingConfirmationForm.Show();
             this.Hide();
 
@@ -138,9 +153,10 @@ namespace SportsFacility4A
         private void availabilityDataGrid_SelectionChanged(object sender, EventArgs e)
         {
             var selection = AvailabilityDataGrid.CurrentCell;
-            if (selection.ColumnIndex > 0)
+            if (selection.ColumnIndex > 0 && !selection.Value.Equals(BOOKING_OCCUPIED))
             {
                 BookingButton.Enabled = true;
+                StatusLabel.Text = "Finally, Add a remark, or click \"Make a booking\"";
             }
 
             else
@@ -221,5 +237,30 @@ namespace SportsFacility4A
 
         }
 
+        private void ReturnButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void resetAvailabilityToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var AvailabilityQuery = from x in context.Availability select x;
+            var availabilities = AvailabilityQuery.ToList<Availability>();
+
+            foreach (Availability a in availabilities)
+            {
+                a.C9am = false;
+                a.C10am = false;
+                a.C11am = false;
+                a.C12pm = false;
+                a.C1pm = false;
+                a.C2pm = false;
+                a.C3pm = false;
+                a.C4pm = false;
+                a.C5pm = false;
+            }
+
+            context.SaveChanges();
+        }
     }
 }
