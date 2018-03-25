@@ -17,28 +17,33 @@ namespace SportsFacility4A
 
         SportsFacilitiesEntities context;
 
-        int customerId = new Random().Next(1,50); // TODO: Get true customer information
+        int customerId;
         int venueID;
         String timeslot;
         DateTime bookedDate;
         String remark;
     
 
-
+        // Default constructor for Booking Confirmation form
         public BookingConfirmationForm()
         {
+
             InitializeComponent();
         }
-
-        public BookingConfirmationForm(int venueID, String timeslot, DateTime d, String remark): this()
+        
+        // True constructor for Booking Confirmation Form
+        public BookingConfirmationForm(int venueId, int customerId, String timeslot, DateTime d, String remark) : this()
         {
-            this.venueID = venueID;
+            this.venueID = venueId;
+            this.customerId = customerId;
             this.timeslot = timeslot;
             this.bookedDate = d;
             this.remark = remark;
 
             ReloadForm();
+            
         }
+
 
         // Utility: Reloads the form with relevant data
         private void ReloadForm()
@@ -48,7 +53,7 @@ namespace SportsFacility4A
             // Show Booking Information
             var venueQuery = from x in context.Venue where x.VenueID == venueID select x;
             Venue v = venueQuery.First();
-
+            
             if (v != null)
             {
                 CategoryLabel.Text = v.Category;
@@ -60,6 +65,7 @@ namespace SportsFacility4A
             }
 
             // Show Customer information
+            Console.WriteLine(customerId);
             var customerQuery = from x in context.Customers where x.CustomerID == customerId select x;
             Customers c = customerQuery.First();
 
@@ -81,7 +87,11 @@ namespace SportsFacility4A
         {
             BookingCompleteDialog bookingCompleteDialog = new BookingCompleteDialog();
             bookingCompleteDialog.Location = this.Location;
-
+            bookingCompleteDialog.FormClosing += delegate {
+                ConfirmButton.Enabled = false;
+                this.toolStripStatusLabel.Text = "Booking has been completed!";
+                ConfirmationLabel.Visible = true;
+            };
 
             try
             {

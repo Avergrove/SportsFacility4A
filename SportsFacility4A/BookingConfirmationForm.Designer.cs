@@ -64,6 +64,7 @@
             this.CustomerIdLabel = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.ReturnButton = new System.Windows.Forms.Button();
+            this.ConfirmationLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -228,8 +229,8 @@
             // toolStripStatusLabel
             // 
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(118, 17);
-            this.toolStripStatusLabel.Text = "toolStripStatusLabel1";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(67, 17);
+            this.toolStripStatusLabel.Text = "StatusLabel";
             // 
             // label7
             // 
@@ -413,15 +414,27 @@
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(75, 23);
             this.ReturnButton.TabIndex = 7;
-            this.ReturnButton.Text = "Return";
+            this.ReturnButton.Text = "<< Return";
             this.ReturnButton.UseVisualStyleBackColor = true;
             this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
+            // 
+            // ConfirmationLabel
+            // 
+            this.ConfirmationLabel.AutoSize = true;
+            this.ConfirmationLabel.Location = new System.Drawing.Point(177, 438);
+            this.ConfirmationLabel.Name = "ConfirmationLabel";
+            this.ConfirmationLabel.Size = new System.Drawing.Size(449, 13);
+            this.ConfirmationLabel.TabIndex = 13;
+            this.ConfirmationLabel.Text = "Your booking has been completed! Please return to the previous form to make more " +
+    "bookings.";
+            this.ConfirmationLabel.Visible = false;
             // 
             // BookingConfirmationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(795, 522);
+            this.Controls.Add(this.ConfirmationLabel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.statusStrip1);
@@ -480,5 +493,6 @@
         private System.Windows.Forms.Label RemarkLabel;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button ReturnButton;
+        private System.Windows.Forms.Label ConfirmationLabel;
     }
 }

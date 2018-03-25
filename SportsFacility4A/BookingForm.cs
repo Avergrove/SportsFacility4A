@@ -17,13 +17,25 @@ namespace SportsFacility4A
     {
 
         SportsFacilitiesEntities context;
+        int customerId;
+
 
         const string BOOKING_OCCUPIED = "Occupied";
         const string BOOKING_FREE = "Free";
 
+        /// <summary>
+        /// Default constructor for booking form, used for testing purposes.
+        /// </summary>
         public BookingForm()
         {
+            this.customerId = new Random().Next(1, 50); // TODO: Get true customer information
+            Console.WriteLine("Init Customer id: " + customerId);
             InitializeComponent();
+        }
+
+        public BookingForm(int customerId) : this()
+        {
+            this.customerId = customerId;
         }
 
         private void BookingForm_Load(object sender, EventArgs e)
@@ -90,29 +102,31 @@ namespace SportsFacility4A
 
             context = new SportsFacilitiesEntities();
 
-            var AddressQuery = from x in context.Venue where x.VenueName == VenueComboBox.SelectedItem.ToString() select x;
-            AddressLabel.Text = AddressQuery.First<Venue>().VenueAddress;
-
-
-            var AvailabilityQuery = from x in context.Availability
-                                    join y in context.Venue
-                                    on x.VenueID equals y.VenueID
-                                    where y.VenueName == VenueComboBox.SelectedItem.ToString()
-                                    select new
-                                    {
-                                        availabilities = x,
-                                        venues = y
-                                    };
-
-            // Repopulate the table.
-            AvailabilityDataGrid.Rows.Clear();
-
-            var firstQ = AvailabilityQuery.First();
-            Console.WriteLine(firstQ.ToString() + "\nVenue ID: " + firstQ.availabilities.VenueID + "\nVenue Name: " + firstQ.venues.VenueName + "\n9am: " + firstQ.availabilities.C9am);
-            AvailabilityDataGrid.Rows.Clear();
-            foreach (var v in AvailabilityQuery)
+            if (VenueComboBox.SelectedIndex != -1)
             {
-                AvailabilityDataGrid.Rows.Add(v.venues.VenueName, this.AvailabilityBoolToString(v.availabilities.C9am), this.AvailabilityBoolToString(v.availabilities.C10am), this.AvailabilityBoolToString(v.availabilities.C11am), this.AvailabilityBoolToString(v.availabilities.C12pm), this.AvailabilityBoolToString(v.availabilities.C1pm), this.AvailabilityBoolToString(v.availabilities.C2pm), this.AvailabilityBoolToString(v.availabilities.C3pm), this.AvailabilityBoolToString(v.availabilities.C4pm), this.AvailabilityBoolToString(v.availabilities.C5pm));
+                var AddressQuery = from x in context.Venue where x.VenueName == VenueComboBox.SelectedItem.ToString() select x;
+                AddressLabel.Text = AddressQuery.First<Venue>().VenueAddress;
+
+
+                var AvailabilityQuery = from x in context.Availability
+                                        join y in context.Venue
+                                        on x.VenueID equals y.VenueID
+                                        where y.VenueName == VenueComboBox.SelectedItem.ToString()
+                                        select new
+                                        {
+                                            availabilities = x,
+                                            venues = y
+                                        };
+
+                // Repopulate the table.
+                AvailabilityDataGrid.Rows.Clear();
+
+                var firstQ = AvailabilityQuery.First();
+                AvailabilityDataGrid.Rows.Clear();
+                foreach (var v in AvailabilityQuery)
+                {
+                    AvailabilityDataGrid.Rows.Add(v.venues.VenueName, this.AvailabilityBoolToString(v.availabilities.C9am), this.AvailabilityBoolToString(v.availabilities.C10am), this.AvailabilityBoolToString(v.availabilities.C11am), this.AvailabilityBoolToString(v.availabilities.C12pm), this.AvailabilityBoolToString(v.availabilities.C1pm), this.AvailabilityBoolToString(v.availabilities.C2pm), this.AvailabilityBoolToString(v.availabilities.C3pm), this.AvailabilityBoolToString(v.availabilities.C4pm), this.AvailabilityBoolToString(v.availabilities.C5pm));
+                }
             }
         }
 
@@ -137,9 +151,8 @@ namespace SportsFacility4A
             bookedTime = bookedTime.AddDays(1);
 
 
-            // public BookingConfirmationForm(String category, String name, String address):
             // BookingConfirmationForm bookingConfirmationForm = new BookingConfirmationForm(v.venues.Category, v.venues.VenueName, v.venues.VenueAddress, GetTimeSlot(), DateTime.Now);
-            BookingConfirmationForm bookingConfirmationForm = new BookingConfirmationForm(v.venues.VenueID, GetTimeSlot(), bookedTime, RemarkTextBox.Text);
+            BookingConfirmationForm bookingConfirmationForm = new BookingConfirmationForm(v.venues.VenueID, customerId, GetTimeSlot(), bookedTime, RemarkTextBox.Text);
             bookingConfirmationForm.Location = this.Location;
             bookingConfirmationForm.StartPosition = FormStartPosition.Manual;
             bookingConfirmationForm.FormClosing += delegate { this.Show(); this.RefreshAvailabilityDataGrid();};
@@ -261,6 +274,7 @@ namespace SportsFacility4A
             }
 
             context.SaveChanges();
+            RefreshAvailabilityDataGrid();
         }
     }
 }
