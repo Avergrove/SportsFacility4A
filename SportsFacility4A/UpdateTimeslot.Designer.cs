@@ -45,7 +45,7 @@
             // 
             // updatebk_cancelbtn
             // 
-            this.updatebk_cancelbtn.Location = new System.Drawing.Point(741, 313);
+            this.updatebk_cancelbtn.Location = new System.Drawing.Point(1066, 96);
             this.updatebk_cancelbtn.Name = "updatebk_cancelbtn";
             this.updatebk_cancelbtn.Size = new System.Drawing.Size(146, 54);
             this.updatebk_cancelbtn.TabIndex = 6;
@@ -55,7 +55,7 @@
             // 
             // updatebk_okbtn
             // 
-            this.updatebk_okbtn.Location = new System.Drawing.Point(924, 313);
+            this.updatebk_okbtn.Location = new System.Drawing.Point(872, 96);
             this.updatebk_okbtn.Name = "updatebk_okbtn";
             this.updatebk_okbtn.Size = new System.Drawing.Size(146, 54);
             this.updatebk_okbtn.TabIndex = 5;
@@ -66,19 +66,20 @@
             // mb_availabilitygridview
             // 
             this.mb_availabilitygridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.mb_availabilitygridview.Location = new System.Drawing.Point(16, 27);
+            this.mb_availabilitygridview.Location = new System.Drawing.Point(12, 170);
             this.mb_availabilitygridview.MultiSelect = false;
             this.mb_availabilitygridview.Name = "mb_availabilitygridview";
             this.mb_availabilitygridview.ReadOnly = true;
             this.mb_availabilitygridview.RowTemplate.Height = 28;
             this.mb_availabilitygridview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.mb_availabilitygridview.Size = new System.Drawing.Size(655, 420);
+            this.mb_availabilitygridview.Size = new System.Drawing.Size(1339, 551);
             this.mb_availabilitygridview.TabIndex = 4;
             this.mb_availabilitygridview.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.mb_availabilitygridview_CellClick_1);
+            this.mb_availabilitygridview.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.mb_availabilitygridview_CellFormatting);
             // 
             // oldbookinglb
             // 
-            this.oldbookinglb.Location = new System.Drawing.Point(696, 58);
+            this.oldbookinglb.Location = new System.Drawing.Point(22, 60);
             this.oldbookinglb.Name = "oldbookinglb";
             this.oldbookinglb.Size = new System.Drawing.Size(144, 29);
             this.oldbookinglb.TabIndex = 7;
@@ -87,7 +88,7 @@
             // 
             // oldhourtb
             // 
-            this.oldhourtb.Location = new System.Drawing.Point(924, 122);
+            this.oldhourtb.Location = new System.Drawing.Point(250, 124);
             this.oldhourtb.Name = "oldhourtb";
             this.oldhourtb.ReadOnly = true;
             this.oldhourtb.Size = new System.Drawing.Size(146, 26);
@@ -96,7 +97,8 @@
             // 
             // newhourtb
             // 
-            this.newhourtb.Location = new System.Drawing.Point(924, 236);
+            this.newhourtb.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newhourtb.Location = new System.Drawing.Point(653, 122);
             this.newhourtb.Name = "newhourtb";
             this.newhourtb.ReadOnly = true;
             this.newhourtb.Size = new System.Drawing.Size(146, 26);
@@ -105,7 +107,7 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(696, 175);
+            this.label1.Location = new System.Drawing.Point(425, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(177, 28);
             this.label1.TabIndex = 9;
@@ -117,15 +119,15 @@
             this.Categorycb.FormattingEnabled = true;
             this.Categorycb.Items.AddRange(new object[] {
             "Current Booking"});
-            this.Categorycb.Location = new System.Drawing.Point(694, 27);
+            this.Categorycb.Location = new System.Drawing.Point(20, 21);
             this.Categorycb.Name = "Categorycb";
-            this.Categorycb.Size = new System.Drawing.Size(193, 28);
+            this.Categorycb.Size = new System.Drawing.Size(336, 28);
             this.Categorycb.TabIndex = 11;
             this.Categorycb.SelectedValueChanged += new System.EventHandler(this.Categorycb_SelectedValueChanged);
             // 
             // oldvenuetb
             // 
-            this.oldvenuetb.Location = new System.Drawing.Point(694, 90);
+            this.oldvenuetb.Location = new System.Drawing.Point(20, 92);
             this.oldvenuetb.Name = "oldvenuetb";
             this.oldvenuetb.ReadOnly = true;
             this.oldvenuetb.Size = new System.Drawing.Size(376, 26);
@@ -134,7 +136,7 @@
             // 
             // oldcategorytb
             // 
-            this.oldcategorytb.Location = new System.Drawing.Point(694, 122);
+            this.oldcategorytb.Location = new System.Drawing.Point(20, 124);
             this.oldcategorytb.Name = "oldcategorytb";
             this.oldcategorytb.ReadOnly = true;
             this.oldcategorytb.Size = new System.Drawing.Size(193, 26);
@@ -143,7 +145,8 @@
             // 
             // newcategorytb
             // 
-            this.newcategorytb.Location = new System.Drawing.Point(694, 236);
+            this.newcategorytb.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newcategorytb.Location = new System.Drawing.Point(423, 122);
             this.newcategorytb.Name = "newcategorytb";
             this.newcategorytb.ReadOnly = true;
             this.newcategorytb.Size = new System.Drawing.Size(193, 26);
@@ -152,7 +155,8 @@
             // 
             // newvenuetb
             // 
-            this.newvenuetb.Location = new System.Drawing.Point(694, 204);
+            this.newvenuetb.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newvenuetb.Location = new System.Drawing.Point(423, 90);
             this.newvenuetb.Name = "newvenuetb";
             this.newvenuetb.ReadOnly = true;
             this.newvenuetb.Size = new System.Drawing.Size(376, 26);
@@ -163,7 +167,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1094, 467);
+            this.ClientSize = new System.Drawing.Size(1363, 733);
             this.Controls.Add(this.newcategorytb);
             this.Controls.Add(this.newvenuetb);
             this.Controls.Add(this.oldcategorytb);

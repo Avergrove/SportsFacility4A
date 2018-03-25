@@ -42,12 +42,16 @@ namespace SportsFacility4A
             {
                 bkinglistGridView.DataSource = q.Where(x => x.Status == "Confirmed").ToList();
                 mb_updatebtn.Visible = true;
+                mb_okbtn.Visible = true;
             }
             else if (bookinglistselCB.Text == "Cancelled" || bookinglistselCB.SelectedItem.ToString() == "Cancelled")
             {
                 bkinglistGridView.DataSource = q.Where(x => x.Status == "Cancelled").ToList();
                 mb_updatebtn.Visible = false;
+                mb_okbtn.Visible = false;
             }
+            bkinglistGridView.DefaultCellStyle.SelectionForeColor = bkinglistGridView.DefaultCellStyle.ForeColor;
+            bkinglistGridView.DefaultCellStyle.SelectionBackColor = bkinglistGridView.DefaultCellStyle.BackColor;
         }
 
 
@@ -66,13 +70,16 @@ namespace SportsFacility4A
 
         private void mb_updatebtn_Click(object sender, EventArgs e)
         {
-            RetrieveData();
-            mb_timeslotform availability = new mb_timeslotform();
-            availability.selectedvenuename = venuename;
-            availability.oldtimeslot = timeslot;
-            availability.oldcategory = facility;
-            availability.BookingID = bookingid;
-            availability.ShowDialog();
+            if (bkinglistGridView.RowCount>0)
+            {
+                RetrieveData();
+                mb_timeslotform availability = new mb_timeslotform();
+                availability.selectedvenuename = venuename;
+                availability.oldtimeslot = timeslot;
+                availability.oldcategory = facility;
+                availability.BookingID = bookingid;
+                availability.ShowDialog();
+            }
         }
 
         private void Reloadbtn_Click(object sender, EventArgs e)
@@ -82,6 +89,8 @@ namespace SportsFacility4A
 
         private void bkinglistGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            bkinglistGridView.RowsDefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            bkinglistGridView.RowsDefaultCellStyle.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             RetrieveData();
             DataSent(facility, venuename, timeslot, custname,bookingid);
             Close();
@@ -94,15 +103,20 @@ namespace SportsFacility4A
         
         private void RetrieveData()
         {
-            facility = bkinglistGridView.CurrentRow.Cells[1].Value.ToString();
-            venuename = bkinglistGridView.CurrentRow.Cells[2].Value.ToString();
-            custname = bkinglistGridView.CurrentRow.Cells[0].Value.ToString();
-            timeslot = bkinglistGridView.CurrentRow.Cells[5].Value.ToString();
-            bookingid = bkinglistGridView.CurrentRow.Cells[7].Value.ToString();
+            if (bkinglistGridView.RowCount > 0)
+            {
+                facility = bkinglistGridView.CurrentRow.Cells[1].Value.ToString();
+                venuename = bkinglistGridView.CurrentRow.Cells[2].Value.ToString();
+                custname = bkinglistGridView.CurrentRow.Cells[0].Value.ToString();
+                timeslot = bkinglistGridView.CurrentRow.Cells[5].Value.ToString();
+                bookingid = bkinglistGridView.CurrentRow.Cells[7].Value.ToString();
+            }
         }
 
         private void bkinglistGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            bkinglistGridView.RowsDefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            bkinglistGridView.RowsDefaultCellStyle.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             RetrieveData();
         }
     }

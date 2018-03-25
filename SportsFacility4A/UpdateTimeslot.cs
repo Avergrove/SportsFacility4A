@@ -62,6 +62,14 @@ namespace SportsFacility4A
             mb_availabilitygridview.DefaultCellStyle.SelectionBackColor = mb_availabilitygridview.DefaultCellStyle.BackColor;
             for (int i = 0; i < mb_availabilitygridview.RowCount; i++)
             {
+                if (mb_availabilitygridview.Rows[i].Cells[0].Value.ToString().Trim() == selectedvenuename.Trim())
+                {
+                    mb_availabilitygridview.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.LightYellow;
+                    mb_availabilitygridview.Rows[i].Cells[10].Style.BackColor = System.Drawing.Color.LightBlue;
+                }
+            }
+            for (int i = 0; i < mb_availabilitygridview.RowCount; i++)
+            {
                 for (int j = 1; j < mb_availabilitygridview.ColumnCount; j++)
                 {
                     if (mb_availabilitygridview.Rows[i].Cells[j].Value is true)
@@ -70,6 +78,16 @@ namespace SportsFacility4A
                         mb_availabilitygridview.Rows[i].Cells[j].Style.BackColor = mb_availabilitygridview.DefaultCellStyle.ForeColor;
                     }
                 }
+            }
+            mb_availabilitygridview.Columns[0].DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightBlue;
+            mb_availabilitygridview.Columns[0].DefaultCellStyle.BackColor = System.Drawing.Color.LightBlue;
+            mb_availabilitygridview.Columns[10].DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightBlue;
+            mb_availabilitygridview.Columns[10].DefaultCellStyle.BackColor = System.Drawing.Color.LightBlue;
+            mb_availabilitygridview.Columns[0].HeaderText = "Venue";
+            mb_availabilitygridview.Columns[0].Width = 150;
+            for (int i = 1; i < mb_availabilitygridview.ColumnCount; i++)
+            {
+                mb_availabilitygridview.Columns[i].Width = 70;
             }
         }
         //Retrieve data for newtimeslot
@@ -193,6 +211,16 @@ namespace SportsFacility4A
         private void Categorycb_SelectedValueChanged(object sender, EventArgs e)
         {
             LoadGrid();
+        }
+
+        private void mb_availabilitygridview_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.Value is bool)
+            {
+                bool value = (bool)e.Value;
+                e.Value = (value) ? "" : "Available";
+                e.FormattingApplied = true;
+            }
         }
     }
 }

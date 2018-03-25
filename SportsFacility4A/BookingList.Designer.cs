@@ -40,30 +40,30 @@
             // bkinglistGridView
             // 
             this.bkinglistGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bkinglistGridView.Location = new System.Drawing.Point(36, 41);
+            this.bkinglistGridView.Location = new System.Drawing.Point(37, 90);
             this.bkinglistGridView.MultiSelect = false;
             this.bkinglistGridView.Name = "bkinglistGridView";
             this.bkinglistGridView.ReadOnly = true;
             this.bkinglistGridView.RowTemplate.Height = 28;
             this.bkinglistGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.bkinglistGridView.Size = new System.Drawing.Size(655, 420);
+            this.bkinglistGridView.Size = new System.Drawing.Size(1235, 420);
             this.bkinglistGridView.TabIndex = 0;
             this.bkinglistGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bkinglistGridView_CellClick);
             this.bkinglistGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bkinglistGridView_CellDoubleClick);
             // 
             // mb_okbtn
             // 
-            this.mb_okbtn.Location = new System.Drawing.Point(714, 47);
+            this.mb_okbtn.Location = new System.Drawing.Point(791, 25);
             this.mb_okbtn.Name = "mb_okbtn";
             this.mb_okbtn.Size = new System.Drawing.Size(146, 54);
             this.mb_okbtn.TabIndex = 1;
-            this.mb_okbtn.Text = "OK";
+            this.mb_okbtn.Text = "Select";
             this.mb_okbtn.UseVisualStyleBackColor = true;
             this.mb_okbtn.Click += new System.EventHandler(this.mb_okbtn_Click);
             // 
             // mb_cancelbtn
             // 
-            this.mb_cancelbtn.Location = new System.Drawing.Point(714, 288);
+            this.mb_cancelbtn.Location = new System.Drawing.Point(1126, 25);
             this.mb_cancelbtn.Name = "mb_cancelbtn";
             this.mb_cancelbtn.Size = new System.Drawing.Size(146, 54);
             this.mb_cancelbtn.TabIndex = 3;
@@ -77,15 +77,15 @@
             this.bookinglistselCB.Items.AddRange(new object[] {
             "Confirmed",
             "Cancelled"});
-            this.bookinglistselCB.Location = new System.Drawing.Point(38, 5);
+            this.bookinglistselCB.Location = new System.Drawing.Point(37, 56);
             this.bookinglistselCB.Name = "bookinglistselCB";
-            this.bookinglistselCB.Size = new System.Drawing.Size(121, 28);
+            this.bookinglistselCB.Size = new System.Drawing.Size(257, 28);
             this.bookinglistselCB.TabIndex = 4;
             this.bookinglistselCB.SelectedValueChanged += new System.EventHandler(this.bookinglistselCB_SelectedValueChanged);
             // 
             // mb_updatebtn
             // 
-            this.mb_updatebtn.Location = new System.Drawing.Point(714, 128);
+            this.mb_updatebtn.Location = new System.Drawing.Point(625, 25);
             this.mb_updatebtn.Name = "mb_updatebtn";
             this.mb_updatebtn.Size = new System.Drawing.Size(146, 54);
             this.mb_updatebtn.TabIndex = 5;
@@ -96,7 +96,7 @@
             // 
             // Reloadbtn
             // 
-            this.Reloadbtn.Location = new System.Drawing.Point(714, 209);
+            this.Reloadbtn.Location = new System.Drawing.Point(958, 25);
             this.Reloadbtn.Name = "Reloadbtn";
             this.Reloadbtn.Size = new System.Drawing.Size(146, 54);
             this.Reloadbtn.TabIndex = 6;
@@ -108,7 +108,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(872, 486);
+            this.ClientSize = new System.Drawing.Size(1300, 486);
             this.Controls.Add(this.Reloadbtn);
             this.Controls.Add(this.mb_updatebtn);
             this.Controls.Add(this.bookinglistselCB);
