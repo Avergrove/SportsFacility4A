@@ -42,8 +42,12 @@
 			this.venuegrid.Location = new System.Drawing.Point(98, 115);
 			this.venuegrid.Name = "venuegrid";
 			this.venuegrid.RowTemplate.Height = 28;
+			this.venuegrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.venuegrid.Size = new System.Drawing.Size(775, 406);
 			this.venuegrid.TabIndex = 0;
+			this.venuegrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.venuegrid_CellClick);
+			this.venuegrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.venuegrid_CellContentClick);
+			this.venuegrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.venuegrid_CellDoubleClick);
 			// 
 			// okvenuebutton
 			// 
@@ -53,6 +57,7 @@
 			this.okvenuebutton.TabIndex = 1;
 			this.okvenuebutton.Text = "Ok";
 			this.okvenuebutton.UseVisualStyleBackColor = true;
+			this.okvenuebutton.Click += new System.EventHandler(this.okvenuebutton_Click);
 			// 
 			// cancelbutton
 			// 
@@ -62,6 +67,7 @@
 			this.cancelbutton.TabIndex = 2;
 			this.cancelbutton.Text = "Cancel";
 			this.cancelbutton.UseVisualStyleBackColor = true;
+			this.cancelbutton.Click += new System.EventHandler(this.cancelbutton_Click);
 			// 
 			// searchvenuebutton
 			// 
@@ -71,6 +77,7 @@
 			this.searchvenuebutton.TabIndex = 3;
 			this.searchvenuebutton.Text = "Search";
 			this.searchvenuebutton.UseVisualStyleBackColor = true;
+			this.searchvenuebutton.Click += new System.EventHandler(this.searchvenuebutton_Click);
 			// 
 			// searchvenuetextbox
 			// 
@@ -92,6 +99,7 @@
 			this.Controls.Add(this.venuegrid);
 			this.Name = "Venue_Search_Screen";
 			this.Text = "Venue_Search_Screen";
+			this.Load += new System.EventHandler(this.Venue_Search_Screen_Load);
 			((System.ComponentModel.ISupportInitialize)(this.venuegrid)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
