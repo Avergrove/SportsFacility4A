@@ -45,9 +45,10 @@
 			this.createbutton = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.Status = new System.Windows.Forms.ComboBox();
 			this.label4 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.Notes = new System.Windows.Forms.TextBox();
+			this.Refreshbutton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// CustNameTextbox
@@ -115,6 +116,7 @@
 			this.CIDtextbox.Name = "CIDtextbox";
 			this.CIDtextbox.Size = new System.Drawing.Size(245, 26);
 			this.CIDtextbox.TabIndex = 10;
+			this.CIDtextbox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CIDtextbox_KeyUp);
 			// 
 			// phonetextbox
 			// 
@@ -126,10 +128,11 @@
 			// 
 			// addresstextbox
 			// 
-			this.addresstextbox.Location = new System.Drawing.Point(444, 343);
+			this.addresstextbox.Location = new System.Drawing.Point(444, 325);
 			this.addresstextbox.Margin = new System.Windows.Forms.Padding(2);
+			this.addresstextbox.Multiline = true;
 			this.addresstextbox.Name = "addresstextbox";
-			this.addresstextbox.Size = new System.Drawing.Size(245, 26);
+			this.addresstextbox.Size = new System.Drawing.Size(402, 53);
 			this.addresstextbox.TabIndex = 12;
 			// 
 			// emailtextbox
@@ -167,25 +170,28 @@
 			this.cidsearch.TabIndex = 16;
 			this.cidsearch.Text = "...";
 			this.cidsearch.UseVisualStyleBackColor = true;
+			this.cidsearch.Click += new System.EventHandler(this.cidsearch_Click);
 			// 
 			// updatebutton
 			// 
-			this.updatebutton.Location = new System.Drawing.Point(544, 658);
+			this.updatebutton.Location = new System.Drawing.Point(686, 658);
 			this.updatebutton.Margin = new System.Windows.Forms.Padding(2);
 			this.updatebutton.Name = "updatebutton";
 			this.updatebutton.Size = new System.Drawing.Size(120, 50);
 			this.updatebutton.TabIndex = 17;
 			this.updatebutton.Text = "Update";
 			this.updatebutton.UseVisualStyleBackColor = true;
+			this.updatebutton.Click += new System.EventHandler(this.updatebutton_Click);
 			// 
 			// createbutton
 			// 
-			this.createbutton.Location = new System.Drawing.Point(323, 657);
+			this.createbutton.Location = new System.Drawing.Point(485, 657);
 			this.createbutton.Name = "createbutton";
 			this.createbutton.Size = new System.Drawing.Size(118, 50);
 			this.createbutton.TabIndex = 18;
 			this.createbutton.Text = "Create";
 			this.createbutton.UseVisualStyleBackColor = true;
+			this.createbutton.Click += new System.EventHandler(this.createbutton_Click);
 			// 
 			// label2
 			// 
@@ -206,14 +212,14 @@
 			this.label3.TabIndex = 21;
 			this.label3.Text = "Status";
 			// 
-			// comboBox1
+			// Status
 			// 
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(444, 536);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(121, 28);
-			this.comboBox1.TabIndex = 22;
-			this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+			this.Status.FormattingEnabled = true;
+			this.Status.Location = new System.Drawing.Point(444, 536);
+			this.Status.Name = "Status";
+			this.Status.Size = new System.Drawing.Size(121, 28);
+			this.Status.TabIndex = 22;
+			this.Status.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
 			// 
 			// label4
 			// 
@@ -224,22 +230,33 @@
 			this.label4.TabIndex = 23;
 			this.label4.Text = "Notes";
 			// 
-			// textBox1
+			// Notes
 			// 
-			this.textBox1.Location = new System.Drawing.Point(444, 583);
-			this.textBox1.Multiline = true;
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(402, 58);
-			this.textBox1.TabIndex = 24;
+			this.Notes.Location = new System.Drawing.Point(444, 583);
+			this.Notes.Multiline = true;
+			this.Notes.Name = "Notes";
+			this.Notes.Size = new System.Drawing.Size(402, 58);
+			this.Notes.TabIndex = 24;
+			// 
+			// Refreshbutton
+			// 
+			this.Refreshbutton.Location = new System.Drawing.Point(292, 657);
+			this.Refreshbutton.Name = "Refreshbutton";
+			this.Refreshbutton.Size = new System.Drawing.Size(94, 50);
+			this.Refreshbutton.TabIndex = 25;
+			this.Refreshbutton.Text = "Refresh";
+			this.Refreshbutton.UseVisualStyleBackColor = true;
+			this.Refreshbutton.Click += new System.EventHandler(this.Refreshbutton_Click);
 			// 
 			// MaintenanceForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(991, 719);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.Refreshbutton);
+			this.Controls.Add(this.Notes);
 			this.Controls.Add(this.label4);
-			this.Controls.Add(this.comboBox1);
+			this.Controls.Add(this.Status);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.createbutton);
@@ -284,8 +301,9 @@
 		private System.Windows.Forms.Button createbutton;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.ComboBox comboBox1;
+		private System.Windows.Forms.ComboBox Status;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox Notes;
+		private System.Windows.Forms.Button Refreshbutton;
 	}
 }
