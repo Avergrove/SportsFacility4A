@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Transactions;
 
+//By Hoon Li Wen Esther | Student ID: A0180504N
 namespace SportsFacility4A
 {
     public partial class Managebookings : Form
@@ -29,8 +30,8 @@ namespace SportsFacility4A
             foreach(string category in cat)
             {
                 FacilityCB.Items.Add(category);
-                toolStripStatusLabel1.Text = "...";
             }
+            toolStripStatusLabel1.Text = "...";
         }
 
         private void FacilityCB_SelectionChangeCommitted(object sender, EventArgs e)
@@ -153,6 +154,11 @@ namespace SportsFacility4A
             {
                 toolStripStatusLabel1.Text = "Failed...";
             }
+        }
+
+        private void mbclosebtn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

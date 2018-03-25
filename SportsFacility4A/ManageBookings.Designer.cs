@@ -39,9 +39,10 @@
             this.CustNameTextBox = new System.Windows.Forms.TextBox();
             this.cancelbookingbtn = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.Remarkstextbox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.mbclosebtn = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,9 +134,9 @@
             // 
             // cancelbookingbtn
             // 
-            this.cancelbookingbtn.Location = new System.Drawing.Point(314, 419);
+            this.cancelbookingbtn.Location = new System.Drawing.Point(249, 420);
             this.cancelbookingbtn.Name = "cancelbookingbtn";
-            this.cancelbookingbtn.Size = new System.Drawing.Size(153, 43);
+            this.cancelbookingbtn.Size = new System.Drawing.Size(148, 43);
             this.cancelbookingbtn.TabIndex = 27;
             this.cancelbookingbtn.Text = "Cancel Booking";
             this.cancelbookingbtn.UseVisualStyleBackColor = true;
@@ -151,6 +152,12 @@
             this.statusStrip1.Size = new System.Drawing.Size(869, 30);
             this.statusStrip1.TabIndex = 28;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(24, 25);
+            this.toolStripStatusLabel1.Text = "...";
             // 
             // Remarkstextbox
             // 
@@ -170,17 +177,22 @@
             this.label5.TabIndex = 29;
             this.label5.Text = "Remarks";
             // 
-            // toolStripStatusLabel1
+            // mbclosebtn
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(24, 25);
-            this.toolStripStatusLabel1.Text = "...";
+            this.mbclosebtn.Location = new System.Drawing.Point(465, 420);
+            this.mbclosebtn.Name = "mbclosebtn";
+            this.mbclosebtn.Size = new System.Drawing.Size(112, 43);
+            this.mbclosebtn.TabIndex = 31;
+            this.mbclosebtn.Text = "Close";
+            this.mbclosebtn.UseVisualStyleBackColor = true;
+            this.mbclosebtn.Click += new System.EventHandler(this.mbclosebtn_Click);
             // 
             // Managebookings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(869, 496);
+            this.Controls.Add(this.mbclosebtn);
             this.Controls.Add(this.Remarkstextbox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.statusStrip1);
@@ -220,5 +232,6 @@
         private System.Windows.Forms.TextBox Remarkstextbox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Button mbclosebtn;
     }
 }
