@@ -44,7 +44,7 @@
             this.reportToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1454, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1454, 42);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -55,7 +55,7 @@
             this.bookingToolStripMenuItem,
             this.demograhpicTrendToolStripMenuItem});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
-            this.reportToolStripMenuItem.Size = new System.Drawing.Size(97, 36);
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(97, 38);
             this.reportToolStripMenuItem.Text = "Report";
             // 
             // memberListToolStripMenuItem
@@ -85,9 +85,9 @@
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 40);
+            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 42);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(1454, 776);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1454, 774);
             this.crystalReportViewer1.TabIndex = 1;
             this.crystalReportViewer1.Visible = false;
             // 
