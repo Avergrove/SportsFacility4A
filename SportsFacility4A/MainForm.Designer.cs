@@ -36,17 +36,17 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.resetAvailabilityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.createToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.venueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.memberListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookingAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.demographicTrendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -115,31 +115,36 @@
             // resetAvailabilityToolStripMenuItem
             // 
             this.resetAvailabilityToolStripMenuItem.Name = "resetAvailabilityToolStripMenuItem";
-            this.resetAvailabilityToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.resetAvailabilityToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.resetAvailabilityToolStripMenuItem.Text = "Customer..";
             this.resetAvailabilityToolStripMenuItem.Click += new System.EventHandler(this.resetAvailabilityToolStripMenuItem_Click);
             // 
-            // statusStrip1
+            // bookingToolStripMenuItem1
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 415);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(718, 22);
-            this.statusStrip1.TabIndex = 6;
-            this.statusStrip1.Text = "statusStrip1";
+            this.bookingToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createToolStripMenuItem1,
+            this.manageToolStripMenuItem1});
+            this.bookingToolStripMenuItem1.Name = "bookingToolStripMenuItem1";
+            this.bookingToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
+            this.bookingToolStripMenuItem1.Text = "Booking..";
             // 
-            // toolStripStatusLabel1
+            // createToolStripMenuItem1
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(289, 17);
-            this.toolStripStatusLabel1.Text = "Please start by selecting an option from the menu bar";
+            this.createToolStripMenuItem1.Name = "createToolStripMenuItem1";
+            this.createToolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
+            this.createToolStripMenuItem1.Text = "Create";
             // 
-            // helpToolStripMenuItem
+            // manageToolStripMenuItem1
             // 
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 19);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.manageToolStripMenuItem1.Name = "manageToolStripMenuItem1";
+            this.manageToolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
+            this.manageToolStripMenuItem1.Text = "Manage";
+            // 
+            // venueToolStripMenuItem
+            // 
+            this.venueToolStripMenuItem.Name = "venueToolStripMenuItem";
+            this.venueToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.venueToolStripMenuItem.Text = "Venue..";
             // 
             // reportToolStripMenuItem
             // 
@@ -150,21 +155,6 @@
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(54, 19);
             this.reportToolStripMenuItem.Text = "Report";
-            // 
-            // bookingToolStripMenuItem1
-            // 
-            this.bookingToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createToolStripMenuItem1,
-            this.manageToolStripMenuItem1});
-            this.bookingToolStripMenuItem1.Name = "bookingToolStripMenuItem1";
-            this.bookingToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.bookingToolStripMenuItem1.Text = "Booking..";
-            // 
-            // venueToolStripMenuItem
-            // 
-            this.venueToolStripMenuItem.Name = "venueToolStripMenuItem";
-            this.venueToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.venueToolStripMenuItem.Text = "Venue..";
             // 
             // memberListToolStripMenuItem
             // 
@@ -184,17 +174,27 @@
             this.demographicTrendToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.demographicTrendToolStripMenuItem.Text = "Demographic Trend";
             // 
-            // createToolStripMenuItem1
+            // helpToolStripMenuItem
             // 
-            this.createToolStripMenuItem1.Name = "createToolStripMenuItem1";
-            this.createToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.createToolStripMenuItem1.Text = "Create";
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 19);
+            this.helpToolStripMenuItem.Text = "Help";
             // 
-            // manageToolStripMenuItem1
+            // statusStrip1
             // 
-            this.manageToolStripMenuItem1.Name = "manageToolStripMenuItem1";
-            this.manageToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.manageToolStripMenuItem1.Text = "Manage";
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 415);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(718, 22);
+            this.statusStrip1.TabIndex = 6;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(289, 17);
+            this.toolStripStatusLabel1.Text = "Please start by selecting an option from the menu bar";
             // 
             // imageList1
             // 
