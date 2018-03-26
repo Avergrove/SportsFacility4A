@@ -40,10 +40,14 @@
 			// 
 			this.Custdatagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.Custdatagrid.Location = new System.Drawing.Point(71, 132);
+			this.Custdatagrid.MultiSelect = false;
 			this.Custdatagrid.Name = "Custdatagrid";
 			this.Custdatagrid.RowTemplate.Height = 28;
+			this.Custdatagrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.Custdatagrid.Size = new System.Drawing.Size(767, 406);
 			this.Custdatagrid.TabIndex = 0;
+			this.Custdatagrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Custdatagrid_CellClick);
+			this.Custdatagrid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Custdatagrid_CellMouseDoubleClick);
 			// 
 			// searchtextbox
 			// 
@@ -61,6 +65,7 @@
 			this.searchbutton.TabIndex = 2;
 			this.searchbutton.Text = "Search";
 			this.searchbutton.UseVisualStyleBackColor = true;
+			this.searchbutton.Click += new System.EventHandler(this.searchbutton_Click);
 			// 
 			// okbutton
 			// 
@@ -70,6 +75,7 @@
 			this.okbutton.TabIndex = 3;
 			this.okbutton.Text = "Ok";
 			this.okbutton.UseVisualStyleBackColor = true;
+			this.okbutton.Click += new System.EventHandler(this.okbutton_Click);
 			// 
 			// cancelbutton
 			// 
@@ -79,6 +85,7 @@
 			this.cancelbutton.TabIndex = 4;
 			this.cancelbutton.Text = "Cancel";
 			this.cancelbutton.UseVisualStyleBackColor = true;
+			this.cancelbutton.Click += new System.EventHandler(this.cancelbutton_Click);
 			// 
 			// Customer_Search_Screen
 			// 
@@ -92,6 +99,7 @@
 			this.Controls.Add(this.Custdatagrid);
 			this.Name = "Customer_Search_Screen";
 			this.Text = "Customer_Search_Screen";
+			this.Load += new System.EventHandler(this.Customer_Search_Screen_Load);
 			((System.ComponentModel.ISupportInitialize)(this.Custdatagrid)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

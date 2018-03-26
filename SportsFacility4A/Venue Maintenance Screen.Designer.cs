@@ -36,10 +36,11 @@
 			this.venueidtextbox = new System.Windows.Forms.TextBox();
 			this.venuenametextbox = new System.Windows.Forms.TextBox();
 			this.venueaddresstextbox = new System.Windows.Forms.TextBox();
-			this.textBox4 = new System.Windows.Forms.TextBox();
+			this.categorytextbox = new System.Windows.Forms.TextBox();
 			this.updatebutton1 = new System.Windows.Forms.Button();
 			this.createbutton = new System.Windows.Forms.Button();
 			this.searchbutton = new System.Windows.Forms.Button();
+			this.Refreshbutton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// venuelabel
@@ -98,6 +99,7 @@
 			this.venueidtextbox.Name = "venueidtextbox";
 			this.venueidtextbox.Size = new System.Drawing.Size(100, 26);
 			this.venueidtextbox.TabIndex = 5;
+			this.venueidtextbox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.venueidtextbox_KeyUp);
 			// 
 			// venuenametextbox
 			// 
@@ -115,31 +117,33 @@
 			this.venueaddresstextbox.Size = new System.Drawing.Size(309, 60);
 			this.venueaddresstextbox.TabIndex = 7;
 			// 
-			// textBox4
+			// categorytextbox
 			// 
-			this.textBox4.Location = new System.Drawing.Point(454, 417);
-			this.textBox4.Multiline = true;
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(221, 50);
-			this.textBox4.TabIndex = 8;
+			this.categorytextbox.Location = new System.Drawing.Point(454, 417);
+			this.categorytextbox.Multiline = true;
+			this.categorytextbox.Name = "categorytextbox";
+			this.categorytextbox.Size = new System.Drawing.Size(221, 50);
+			this.categorytextbox.TabIndex = 8;
 			// 
 			// updatebutton1
 			// 
-			this.updatebutton1.Location = new System.Drawing.Point(545, 542);
+			this.updatebutton1.Location = new System.Drawing.Point(617, 542);
 			this.updatebutton1.Name = "updatebutton1";
 			this.updatebutton1.Size = new System.Drawing.Size(163, 59);
 			this.updatebutton1.TabIndex = 9;
 			this.updatebutton1.Text = "Update";
 			this.updatebutton1.UseVisualStyleBackColor = true;
+			this.updatebutton1.Click += new System.EventHandler(this.updatebutton1_Click);
 			// 
 			// createbutton
 			// 
-			this.createbutton.Location = new System.Drawing.Point(272, 542);
+			this.createbutton.Location = new System.Drawing.Point(390, 542);
 			this.createbutton.Name = "createbutton";
 			this.createbutton.Size = new System.Drawing.Size(143, 59);
 			this.createbutton.TabIndex = 10;
 			this.createbutton.Text = "Create";
 			this.createbutton.UseVisualStyleBackColor = true;
+			this.createbutton.Click += new System.EventHandler(this.createbutton_Click);
 			// 
 			// searchbutton
 			// 
@@ -149,16 +153,28 @@
 			this.searchbutton.TabIndex = 11;
 			this.searchbutton.Text = "...";
 			this.searchbutton.UseVisualStyleBackColor = true;
+			this.searchbutton.Click += new System.EventHandler(this.searchbutton_Click);
+			// 
+			// Refreshbutton
+			// 
+			this.Refreshbutton.Location = new System.Drawing.Point(172, 542);
+			this.Refreshbutton.Name = "Refreshbutton";
+			this.Refreshbutton.Size = new System.Drawing.Size(122, 59);
+			this.Refreshbutton.TabIndex = 12;
+			this.Refreshbutton.Text = "Refresh";
+			this.Refreshbutton.UseVisualStyleBackColor = true;
+			this.Refreshbutton.Click += new System.EventHandler(this.Refreshbutton_Click);
 			// 
 			// Venue_Maintenance_Screen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(871, 665);
+			this.Controls.Add(this.Refreshbutton);
 			this.Controls.Add(this.searchbutton);
 			this.Controls.Add(this.createbutton);
 			this.Controls.Add(this.updatebutton1);
-			this.Controls.Add(this.textBox4);
+			this.Controls.Add(this.categorytextbox);
 			this.Controls.Add(this.venueaddresstextbox);
 			this.Controls.Add(this.venuenametextbox);
 			this.Controls.Add(this.venueidtextbox);
@@ -169,6 +185,7 @@
 			this.Controls.Add(this.venuelabel);
 			this.Name = "Venue_Maintenance_Screen";
 			this.Text = "Venue_Maintenance_Screen";
+			this.Load += new System.EventHandler(this.Venue_Maintenance_Screen_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -184,9 +201,10 @@
 		private System.Windows.Forms.TextBox venueidtextbox;
 		private System.Windows.Forms.TextBox venuenametextbox;
 		private System.Windows.Forms.TextBox venueaddresstextbox;
-		private System.Windows.Forms.TextBox textBox4;
+		private System.Windows.Forms.TextBox categorytextbox;
 		private System.Windows.Forms.Button updatebutton1;
 		private System.Windows.Forms.Button createbutton;
 		private System.Windows.Forms.Button searchbutton;
+		private System.Windows.Forms.Button Refreshbutton;
 	}
 }
