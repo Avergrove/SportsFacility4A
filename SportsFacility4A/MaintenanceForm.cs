@@ -172,6 +172,14 @@ namespace SportsFacility4A
 				c.CustomerAddress = addresstextbox.Text;
 				c.Email = emailtextbox.Text;
 				c.Age = Convert.ToInt32(agetextbox.Text);
+				if (c.Age >= 55)
+					c.MemberCategory = "A";
+				else if (c.Age >= 40 && c.Age < 55)
+					c.MemberCategory = "B";
+				else if (c.Age >= 30 && c.Age < 40)
+					c.MemberCategory = "C";
+				else
+					c.MemberCategory = "D";
 				if (Status.Text == "Active")
 					c.Status = Convert.ToBoolean(1);
 				else
