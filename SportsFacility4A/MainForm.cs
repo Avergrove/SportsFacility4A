@@ -71,6 +71,21 @@ namespace SportsFacility4A
             GenerateFAQForm();
         }
 
+        private void memberListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GenerateReportForm(ReportForm.REPORT_GENERATE_MEMBERLIST);
+        }
+
+        private void bookingAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GenerateReportForm(ReportForm.REPORT_GENERATE_BOOKINGS);
+        }
+
+        private void demographicTrendToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GenerateReportForm(ReportForm.REPORT_GENERATE_DEMOGRAPHICS);
+        }
+
         // Utility: Displays a Booking Form
         private void GenerateBookingForm()
         {
@@ -129,6 +144,16 @@ namespace SportsFacility4A
 
         }
 
+        // Utility: Displays a Report Form with data to generate specified.
+        private void GenerateReportForm(int generateId)
+        {
+            ReportForm reportForm = new ReportForm(generateId);
+            reportForm.Location = this.Location;
+            reportForm.StartPosition = FormStartPosition.Manual;
+            reportForm.FormClosing += delegate { this.Show(); };
+            reportForm.Show();
+            this.Hide();
+        }
 
         // Utility: Displays a Help page.
         private void GenerateFAQForm()

@@ -181,7 +181,22 @@ namespace SportsFacility4A
         private void availabilityDataGrid_SelectionChanged(object sender, EventArgs e)
         {
             var selection = AvailabilityDataGrid.CurrentCell;
-            if (selection.ColumnIndex > 0 && !selection.Value.Equals(BOOKING_OCCUPIED))
+
+            bool parseResult;
+
+            try
+            {
+                Int32.Parse(CustomerIdLabel.Text);
+                parseResult = true;
+            }
+            catch(Exception ex)
+            {
+                parseResult = false;
+            }
+
+
+
+            if (selection.ColumnIndex > 0 && !selection.Value.Equals(BOOKING_OCCUPIED) && parseResult)
             {
                 BookingButton.Enabled = true;
                 StatusLabel.Text = "Finally, Add a remark, or click \"Make a booking\"";

@@ -15,10 +15,38 @@ namespace SportsFacility4A
 
         Sportsfacilities sf;
 
+        public const int REPORT_GENERATE_MEMBERLIST = 0;
+        public const int REPORT_GENERATE_BOOKINGS = 1;
+        public const int REPORT_GENERATE_DEMOGRAPHICS = 2;
+
         public ReportForm()
         {
             InitializeComponent();
         }
+
+        public ReportForm(int generateId): this()
+        {
+
+            switch (generateId)
+            {
+                case REPORT_GENERATE_MEMBERLIST:
+                    GenerateMemberListReport();
+                    break;
+
+                case REPORT_GENERATE_BOOKINGS:
+                    GenerateBookingReport();
+                    break;
+
+                case REPORT_GENERATE_DEMOGRAPHICS:
+                    GenerateDemographicsReport();
+                    break;
+
+                default:
+                    break;
+            }
+            
+        }
+
 
         private void DisplayResults()
         {
@@ -29,22 +57,12 @@ namespace SportsFacility4A
 
         private void memberListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sf = new Sportsfacilities();
-            SportsfacilitiesTableAdapters.CustomersTableAdapter ta = new SportsfacilitiesTableAdapters.CustomersTableAdapter();
-            ta.Fill(sf.Customers);
-
-
-            SFCustomer cr = new SFCustomer();
-            cr.SetDataSource(sf);
-            crystalReportViewer1.ReportSource = cr;
-            DisplayResults();
-
-
+            GenerateMemberListReport();
         }
 
         private void bookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            GenerateBookingReport();
             //create dataset reportbooktxn 
             //SELECT b.VenueID, b.BookedDate, b.BookedHour, b.CustomerID, b.Status, v.VenueName
             //  FROM BookingTransaction AS b INNER JOIN
@@ -54,6 +72,26 @@ namespace SportsFacility4A
             //  FROM  BookingTransaction
             //  WHERE(Status = 'confirmed')))
 
+        }
+
+
+        // Utility: Generates a Member List Report
+        private void GenerateMemberListReport()
+        {
+            sf = new Sportsfacilities();
+            SportsfacilitiesTableAdapters.CustomersTableAdapter ta = new SportsfacilitiesTableAdapters.CustomersTableAdapter();
+            ta.Fill(sf.Customers);
+
+
+            SFCustomer cr = new SFCustomer();
+            cr.SetDataSource(sf);
+            crystalReportViewer1.ReportSource = cr;
+            DisplayResults();
+        }
+
+        // Utility: Generate a report of confirmed booking of venues.
+        private void GenerateBookingReport()
+        {
             sf = new Sportsfacilities();
             SportsfacilitiesTableAdapters.ReportbookingtxnTableAdapter ta = new SportsfacilitiesTableAdapters.ReportbookingtxnTableAdapter();
             ta.Fill(sf.Reportbookingtxn);
@@ -62,21 +100,11 @@ namespace SportsFacility4A
             cr.SetDataSource(sf);
             crystalReportViewer1.ReportSource = cr;
             DisplayResults();
-
         }
 
-        private void demograhpicTrendToolStripMenuItem_Click(object sender, EventArgs e)
+        // Utility: Generate a report on the demographics.
+        private void GenerateDemographicsReport()
         {
-            //create dataset trendchart 
-            //SELECT b.CustomerID, c.MemberCategory, b.BookedDate, b.BookedHour
-            //FROM BookingTransaction AS b INNER JOIN
-            //Customers AS c ON b.CustomerID = c.CustomerID
-             //WHERE(b.Status IN
-            //(SELECT Status
-            // FROM  BookingTransaction
-            // WHERE(Status = 'confirmed')))
-
-
             sf = new Sportsfacilities();
             SportsfacilitiesTableAdapters.TrendchartTableAdapter ta = new SportsfacilitiesTableAdapters.TrendchartTableAdapter();
             ta.Fill(sf.Trendchart);
@@ -85,9 +113,23 @@ namespace SportsFacility4A
             cr.SetDataSource(sf);
             crystalReportViewer1.ReportSource = cr;
             DisplayResults();
-
-
         }
+
+
+        private void demograhpicTrendToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //create dataset trendchart 
+            //SELECT b.CustomerID, c.MemberCategory, b.BookedDate, b.BookedHour
+            //FROM BookingTransaction AS b INNER JOIN
+            //Customers AS c ON b.CustomerID = c.CustomerID
+            //WHERE(b.Status IN
+            //(SELECT Status
+            // FROM  BookingTransaction
+            // WHERE(Status = 'confirmed')))
+            GenerateDemographicsReport();
+        }
+
+
 
         private void ReportForm_Load(object sender, EventArgs e)
         {
