@@ -84,6 +84,15 @@ namespace SportsFacility4A
             mb_availabilitygridview.Columns[10].DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightBlue;
             mb_availabilitygridview.Columns[10].DefaultCellStyle.BackColor = System.Drawing.Color.LightBlue;
             mb_availabilitygridview.Columns[0].HeaderText = "Venue";
+            mb_availabilitygridview.Columns[1].HeaderText = "9am";
+            mb_availabilitygridview.Columns[2].HeaderText = "10am";
+            mb_availabilitygridview.Columns[3].HeaderText = "11am";
+            mb_availabilitygridview.Columns[4].HeaderText = "12pm";
+            mb_availabilitygridview.Columns[5].HeaderText = "1pm";
+            mb_availabilitygridview.Columns[6].HeaderText = "2pm";
+            mb_availabilitygridview.Columns[7].HeaderText = "3pm";
+            mb_availabilitygridview.Columns[8].HeaderText = "4pm";
+            mb_availabilitygridview.Columns[9].HeaderText = "5pm";
             mb_availabilitygridview.Columns[0].Width = 150;
             for (int i = 1; i < mb_availabilitygridview.ColumnCount; i++)
             {
@@ -93,7 +102,7 @@ namespace SportsFacility4A
         //Retrieve new booking info
         private void RetrieveData()
         {
-            newtimeslot = mb_availabilitygridview.CurrentCell.OwningColumn.HeaderText.Substring(1);
+            newtimeslot = mb_availabilitygridview.CurrentCell.OwningColumn.HeaderText;
             newvenuename = mb_availabilitygridview.CurrentRow.Cells[0].Value.ToString();
             newcategory = mb_availabilitygridview.CurrentRow.Cells[10].Value.ToString();
         }
@@ -128,7 +137,7 @@ namespace SportsFacility4A
         //update bookinginfo
         private void updatebk_okbtn_Click(object sender, EventArgs e)
         {
-            if (mb_availabilitygridview.CurrentCell.Value is bool && mb_availabilitygridview.CurrentCell.Value is false)
+            if (mb_availabilitygridview.CurrentCell.Value is false)
             {
                 using (TransactionScope ts = new TransactionScope())
                 {
