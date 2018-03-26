@@ -195,7 +195,11 @@ namespace SportsFacility4A
 		{
 			int id = Convert.ToInt32(CIDtextbox.Text);
 			BookingForm b = new BookingForm(id);
-			b.Show();
+            b.Location = this.Location;
+            b.StartPosition = FormStartPosition.Manual;
+            b.FormClosing += delegate { this.Show(); };
+            b.Show();
+            this.Hide();
 		}
 	}
 }

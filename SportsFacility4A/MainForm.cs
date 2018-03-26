@@ -35,7 +35,7 @@ namespace SportsFacility4A
             MaintenanceForm maintenanceForm = new MaintenanceForm();
             maintenanceForm.Location = this.Location;
             maintenanceForm.StartPosition = FormStartPosition.Manual;
-            maintenanceForm.FormClosing += delegate { this.Show(); this.Close(); };
+            maintenanceForm.FormClosing += delegate { this.Show();};
             maintenanceForm.Show();
             this.Hide();
         }
@@ -45,7 +45,7 @@ namespace SportsFacility4A
             ReportGenerationForm reportGenerationForm = new ReportGenerationForm();
             reportGenerationForm.Location = this.Location;
             reportGenerationForm.StartPosition = FormStartPosition.Manual;
-            reportGenerationForm.FormClosing += delegate { this.Show(); this.Close(); };
+            reportGenerationForm.FormClosing += delegate { this.Show();};
             reportGenerationForm.Show();
             this.Hide();
         }

@@ -37,6 +37,8 @@ namespace SportsFacility4A
         public BookingForm(int customerId) : this()
         {
             this.customerId = customerId;
+            CustomerIdLabel.Text = this.customerId.ToString();
+            
         }
 
         private void BookingForm_Load(object sender, EventArgs e)
@@ -165,7 +167,7 @@ namespace SportsFacility4A
 
 
             // BookingConfirmationForm bookingConfirmationForm = new BookingConfirmationForm(v.venues.Category, v.venues.VenueName, v.venues.VenueAddress, GetTimeSlot(), DateTime.Now);
-            BookingConfirmationForm bookingConfirmationForm = new BookingConfirmationForm(v.venues.VenueID, customerId, GetTimeSlot(), bookedTime, RemarkTextBox.Text);
+            BookingConfirmationForm bookingConfirmationForm = new BookingConfirmationForm(v.venues.VenueID, Int32.Parse(CustomerIdLabel.Text), GetTimeSlot(), bookedTime, RemarkTextBox.Text);
             bookingConfirmationForm.Location = this.Location;
             bookingConfirmationForm.StartPosition = FormStartPosition.Manual;
             bookingConfirmationForm.FormClosing += delegate { this.Show(); this.RefreshAvailabilityDataGrid();};
