@@ -81,6 +81,12 @@
     <Compile Include="Customers.cs">
       <DependentUpon>SportsFacilitiesModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CustomerSelectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerSelectDialog.Designer.cs">
+      <DependentUpon>CustomerSelectDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="MaintenanceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BookingForm.resx">
       <DependentUpon>BookingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerSelectDialog.resx">
+      <DependentUpon>CustomerSelectDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

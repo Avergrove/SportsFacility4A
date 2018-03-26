@@ -22,6 +22,7 @@ namespace SportsFacility4A
 
         const string BOOKING_OCCUPIED = "Occupied";
         const string BOOKING_FREE = "Available";
+        
 
         /// <summary>
         /// Default constructor for booking form, used for testing purposes.
