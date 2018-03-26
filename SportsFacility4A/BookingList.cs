@@ -28,7 +28,6 @@ namespace SportsFacility4A
             bookinglistselCB.Text = "Confirmed";
             SearchBox.Text = "[Enter Customer Name...]";
             RetrieveGrid();
-            bkinglistGridView.ClearSelection();
         }
         //Retrieve grid based on selection in combobox
         private void RetrieveGrid()
@@ -50,12 +49,13 @@ namespace SportsFacility4A
                 mb_updatebtn.Visible = false;
                 mb_okbtn.Visible = false;
             }
+            bkinglistGridView.ClearSelection();
 
+            //change header names and fix width
             for (int i=1; i < bkinglistGridView.ColumnCount; i++)
             {
                 bkinglistGridView.Columns[i].Width = 70;
             }
-
             bkinglistGridView.Columns[0].HeaderText = "Customer Name";
             bkinglistGridView.Columns[2].HeaderText = "Venue";
             bkinglistGridView.Columns[0].Width = 150;
@@ -67,7 +67,7 @@ namespace SportsFacility4A
         //retrieve booking info when select button is clicked
         private void mb_okbtn_Click(object sender, EventArgs e)
         {
-            if (bkinglistGridView.RowCount > 0)
+            if (bkinglistGridView.SelectedRows.Count > 0)
             {
                 DataSent(facility, venuename, timeslot, custname, bookingid);
                 Close();
@@ -83,9 +83,9 @@ namespace SportsFacility4A
 
         private void mb_updatebtn_Click(object sender, EventArgs e)
         {
-            if (bkinglistGridView.RowCount>0)
+            if (bkinglistGridView.SelectedRows.Count > 0)
             {
-                RetrieveData();
+                //RetrieveData();
                 mb_timeslotform availability = new mb_timeslotform();
                 availability.selectedvenuename = venuename;
                 availability.oldtimeslot = timeslot;
