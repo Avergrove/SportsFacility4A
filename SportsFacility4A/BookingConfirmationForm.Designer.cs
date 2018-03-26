@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -65,9 +66,11 @@
             this.label14 = new System.Windows.Forms.Label();
             this.ReturnButton = new System.Windows.Forms.Button();
             this.ConfirmationLabel = new System.Windows.Forms.Label();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -450,6 +453,7 @@
             this.statusStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -494,5 +498,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button ReturnButton;
         private System.Windows.Forms.Label ConfirmationLabel;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }

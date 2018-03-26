@@ -21,7 +21,7 @@ namespace SportsFacility4A
 
 
         const string BOOKING_OCCUPIED = "Occupied";
-        const string BOOKING_FREE = "Free";
+        const string BOOKING_FREE = "Available";
 
         /// <summary>
         /// Default constructor for booking form, used for testing purposes.
@@ -99,7 +99,7 @@ namespace SportsFacility4A
         // UTILITY: Refreshes the Avaialability datagrid.
         private void RefreshAvailabilityDataGrid()
         {
-
+            // selectionbackcolor, back color
             context = new SportsFacilitiesEntities();
 
             if (VenueComboBox.SelectedIndex != -1)
@@ -126,6 +126,18 @@ namespace SportsFacility4A
                 foreach (var v in AvailabilityQuery)
                 {
                     AvailabilityDataGrid.Rows.Add(v.venues.VenueName, this.AvailabilityBoolToString(v.availabilities.C9am), this.AvailabilityBoolToString(v.availabilities.C10am), this.AvailabilityBoolToString(v.availabilities.C11am), this.AvailabilityBoolToString(v.availabilities.C12pm), this.AvailabilityBoolToString(v.availabilities.C1pm), this.AvailabilityBoolToString(v.availabilities.C2pm), this.AvailabilityBoolToString(v.availabilities.C3pm), this.AvailabilityBoolToString(v.availabilities.C4pm), this.AvailabilityBoolToString(v.availabilities.C5pm));
+                    foreach(DataGridViewRow r in AvailabilityDataGrid.Rows)
+                    {
+                        foreach(DataGridViewCell c in r.Cells)
+                        {
+                            if(c.Value.Equals(BOOKING_OCCUPIED))
+                            {
+                                c.Style = new DataGridViewCellStyle();
+                                c.Style.SelectionBackColor = Color.Black;
+                                c.Style.BackColor = Color.Black;
+                            }
+                        }
+                    }
                 }
             }
         }
