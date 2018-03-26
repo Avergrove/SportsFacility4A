@@ -55,7 +55,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetAvailabilityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CustomerIdLabel = new System.Windows.Forms.TextBox();
+            this.CustomerIdTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -301,12 +301,13 @@
             this.resetAvailabilityToolStripMenuItem.Text = "Reset Availability";
             this.resetAvailabilityToolStripMenuItem.Click += new System.EventHandler(this.resetAvailabilityToolStripMenuItem_Click);
             // 
-            // CustomerIdLabel
+            // CustomerIdTextBox
             // 
-            this.CustomerIdLabel.Location = new System.Drawing.Point(786, 76);
-            this.CustomerIdLabel.Name = "CustomerIdLabel";
-            this.CustomerIdLabel.Size = new System.Drawing.Size(100, 20);
-            this.CustomerIdLabel.TabIndex = 18;
+            this.CustomerIdTextBox.Location = new System.Drawing.Point(786, 76);
+            this.CustomerIdTextBox.Name = "CustomerIdTextBox";
+            this.CustomerIdTextBox.Size = new System.Drawing.Size(100, 20);
+            this.CustomerIdTextBox.TabIndex = 18;
+            this.CustomerIdTextBox.TextChanged += new System.EventHandler(this.CustomerIdLabel_TextChanged);
             // 
             // label6
             // 
@@ -342,7 +343,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.CustomerIdLabel);
+            this.Controls.Add(this.CustomerIdTextBox);
             this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.RemarkTextBox);
             this.Controls.Add(this.label5);
@@ -400,7 +401,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem debugToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resetAvailabilityToolStripMenuItem;
-        private System.Windows.Forms.TextBox CustomerIdLabel;
+        private System.Windows.Forms.TextBox CustomerIdTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
