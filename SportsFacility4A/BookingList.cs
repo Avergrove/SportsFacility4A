@@ -26,6 +26,7 @@ namespace SportsFacility4A
         private void BookingsList_Load(object sender, EventArgs e)
         {
             bookinglistselCB.Text = "Confirmed";
+            SearchBox.Text = "[Enter Member Name...]";
             RetrieveGrid();
         }
         //Retrieve grid based on selection in combobox
@@ -56,6 +57,8 @@ namespace SportsFacility4A
             {
                 bkinglistGridView.Columns[i].Width = 70;
             }
+
+            bkinglistGridView.Columns[0].HeaderText = "Customer Name";
             bkinglistGridView.Columns[2].HeaderText = "Venue";
             bkinglistGridView.Columns[0].Width = 150;
             bkinglistGridView.Columns[2].Width = 150;
@@ -96,6 +99,22 @@ namespace SportsFacility4A
         private void Reloadbtn_Click(object sender, EventArgs e)
         {
             RetrieveGrid();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            var q = from x in ctx.BookingTransaction
+                    join y in ctx.Customers on x.CustomerID equals y.CustomerID
+                    join z in ctx.Venue on x.VenueID equals z.VenueID
+                    where x.BookedDate > DateTime.Today.Date && (x.Status==bookinglistselCB.SelectedItem.ToString() || x.Status==bookinglistselCB.Text)
+                    select new
+                    { y.CustomerName, z.Category, z.VenueName, x.DateCreated, x.BookedDate, x.BookedHour, x.Status, x.BookingID, x.Remark, };
+            bkinglistGridView.DataSource = q.Where(x => x.CustomerName.Contains(SearchBox.Text)).ToList();
+        }
+
+        private void SearchBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            SearchBox.Clear();
         }
 
         private void bkinglistGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

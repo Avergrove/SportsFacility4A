@@ -34,6 +34,7 @@
             this.bookinglistselCB = new System.Windows.Forms.ComboBox();
             this.mb_updatebtn = new System.Windows.Forms.Button();
             this.Reloadbtn = new System.Windows.Forms.Button();
+            this.SearchBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bkinglistGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,11 +105,22 @@
             this.Reloadbtn.UseVisualStyleBackColor = true;
             this.Reloadbtn.Click += new System.EventHandler(this.Reloadbtn_Click);
             // 
+            // SearchBox
+            // 
+            this.SearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchBox.Location = new System.Drawing.Point(37, 12);
+            this.SearchBox.Name = "SearchBox";
+            this.SearchBox.Size = new System.Drawing.Size(254, 26);
+            this.SearchBox.TabIndex = 7;
+            this.SearchBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SearchBox_MouseClick);
+            this.SearchBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // BookingList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1300, 486);
+            this.Controls.Add(this.SearchBox);
             this.Controls.Add(this.Reloadbtn);
             this.Controls.Add(this.mb_updatebtn);
             this.Controls.Add(this.bookinglistselCB);
@@ -120,6 +132,7 @@
             this.Load += new System.EventHandler(this.BookingsList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bkinglistGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -131,5 +144,6 @@
         private System.Windows.Forms.ComboBox bookinglistselCB;
         private System.Windows.Forms.Button mb_updatebtn;
         private System.Windows.Forms.Button Reloadbtn;
+        private System.Windows.Forms.TextBox SearchBox;
     }
 }
