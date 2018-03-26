@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SportsFacility4A
 {
-    public partial class ReportGenerationForm : Form
+    public partial class Help_FAQ : Form
     {
-        public ReportGenerationForm()
+        public Help_FAQ()
         {
             InitializeComponent();
         }
