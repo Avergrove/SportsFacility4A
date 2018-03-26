@@ -90,19 +90,26 @@ namespace SportsFacility4A
 			SportsFacilitiesEntities context = new SportsFacilitiesEntities();
 			if (e.KeyCode == Keys.Enter)
 			{
-				int i = Convert.ToInt32(CIDtextbox.Text);
-				var q = from x in context.Customers where x.CustomerID==i select x;
-				Customers c = q.First();
-				CustNameTextbox.Text = c.CustomerName;
-				phonetextbox.Text = c.PhoneNumber;
-				addresstextbox.Text = c.CustomerAddress;
-				emailtextbox.Text = c.Email;
-				agetextbox.Text = Convert.ToString(c.Age);
-				if ((bool)c.Status)//nullable boolean so explicit conversion is required
-				Status.Text ="Active";
+				int i;
+				bool result = Int32.TryParse(CIDtextbox.Text, out i);
+				if (result)
+				{
+					//int i = Convert.ToInt32(CIDtextbox.Text);
+					var q = from x in context.Customers where x.CustomerID == i select x;
+					Customers c = q.First();
+					CustNameTextbox.Text = c.CustomerName;
+					phonetextbox.Text = c.PhoneNumber;
+					addresstextbox.Text = c.CustomerAddress;
+					emailtextbox.Text = c.Email;
+					agetextbox.Text = Convert.ToString(c.Age);
+					if ((bool)c.Status)//nullable boolean so explicit conversion is required
+						Status.Text = "Active";
+					else
+						Status.Text = "InActive";
+					Notes.Text = c.Notes;
+				}
 				else
-			    Status.Text = "InActive";
-				Notes.Text = c.Notes;
+					MessageBox.Show("Enter a correct id");
 
 
 			}

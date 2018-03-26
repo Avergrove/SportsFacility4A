@@ -22,7 +22,7 @@ namespace SportsFacility4A
 
         private void Main_BookingButton_Click(object sender, EventArgs e)
         {
-            BookingForm bookingForm = new BookingForm();
+            BookingForm bookingForm=new BookingForm();
             bookingForm.Location = this.Location;
             bookingForm.StartPosition = FormStartPosition.Manual;
             bookingForm.FormClosing += delegate { this.Show();};
