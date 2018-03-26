@@ -52,14 +52,25 @@ namespace SportsFacility4A
             }
             bkinglistGridView.DefaultCellStyle.SelectionForeColor = bkinglistGridView.DefaultCellStyle.ForeColor;
             bkinglistGridView.DefaultCellStyle.SelectionBackColor = bkinglistGridView.DefaultCellStyle.BackColor;
+            for(int i=1; i < bkinglistGridView.ColumnCount; i++)
+            {
+                bkinglistGridView.Columns[i].Width = 70;
+            }
+            bkinglistGridView.Columns[2].HeaderText = "Venue";
+            bkinglistGridView.Columns[0].Width = 150;
+            bkinglistGridView.Columns[2].Width = 150;
+            bkinglistGridView.Columns[8].Width = 150;
         }
 
 
 
         private void mb_okbtn_Click(object sender, EventArgs e)
         {
-            DataSent(facility, venuename, timeslot, custname,bookingid);
-            Close();
+            if (bkinglistGridView.RowCount > 0)
+            {
+                DataSent(facility, venuename, timeslot, custname, bookingid);
+                Close();
+            }
         }
 
 

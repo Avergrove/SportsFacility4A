@@ -42,7 +42,7 @@ namespace SportsFacility4A
             TimeSlotCB.Items.Clear();
             TimeSlotCB.Text = "";
             CustNameTextBox.Text = "";
-            confirmedbookings = ctx.BookingTransaction.Where(x => x.BookedDate > DateTime.Today.Date && x.Status == "Confirmed" && x.Venue.Category == FacilityCB.SelectedItem.ToString()).ToList();
+            confirmedbookings = ctx.BookingTransaction.Where(x => x.BookedDate > DateTime.Today.Date && x.Status == "Confirmed" && x.Venue.Category == FacilityCB.SelectedItem.ToString()).OrderBy(x=>x.Venue.VenueName).ToList();
             List<string> venues = confirmedbookings.Select(x => x.Venue.VenueName).Distinct().ToList();
             foreach (string venue in venues)
             {
