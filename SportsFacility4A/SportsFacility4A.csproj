@@ -62,7 +62,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Availability.cs">
-      <DependentUpon>SportsFacilityModel.tt</DependentUpon>
+      <DependentUpon>SportsFacilitiesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BookingConfirmationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookingConfirmationForm.Designer.cs">
+      <DependentUpon>BookingConfirmationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="BookingForm.cs">
       <SubType>Form</SubType>
@@ -70,17 +76,17 @@
     <Compile Include="BookingForm.Designer.cs">
       <DependentUpon>BookingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BookingTransaction.cs">
-      <DependentUpon>SportsFacilityModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Customer Search Screen.cs">
+    <Compile Include="BookingCompleteDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer Search Screen.Designer.cs">
-      <DependentUpon>Customer Search Screen.cs</DependentUpon>
+    <Compile Include="BookingCompleteDialog.Designer.cs">
+      <DependentUpon>BookingCompleteDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BookingTransaction.cs">
+      <DependentUpon>SportsFacilitiesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Customers.cs">
-      <DependentUpon>SportsFacilityModel.tt</DependentUpon>
+      <DependentUpon>SportsFacilitiesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="demographic.cs">
       <AutoGen>True</AutoGen>
@@ -95,10 +101,11 @@
       <DependentUpon>Help-FAQ.cs</DependentUpon>
     </Compile>
     <Compile Include="ManageBookings.cs">
+    <Compile Include="CustomerSelectDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManageBookings.Designer.cs">
-      <DependentUpon>ManageBookings.cs</DependentUpon>
+    <Compile Include="CustomerSelectDialog.Designer.cs">
+      <DependentUpon>CustomerSelectDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="MaintenanceForm.cs">
       <SubType>Form</SubType>
@@ -138,35 +145,30 @@
       <DependentUpon>Sportsfacilities.xsd</DependentUpon>
     </Compile>
     <Compile Include="SportsFacilityModel.Context.cs">
+    <Compile Include="SportsFacilitiesModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SportsFacilityModel.Context.tt</DependentUpon>
+      <DependentUpon>SportsFacilitiesModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="SportsFacilityModel.cs">
+    <Compile Include="SportsFacilitiesModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SportsFacilityModel.tt</DependentUpon>
+      <DependentUpon>SportsFacilitiesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SportsFacilityModel.Designer.cs">
+    <Compile Include="SportsFacilitiesModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SportsFacilityModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Venue Maintenance Screen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Venue Maintenance Screen.Designer.cs">
-      <DependentUpon>Venue Maintenance Screen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Venue Search Screen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Venue Search Screen.Designer.cs">
-      <DependentUpon>Venue Search Screen.cs</DependentUpon>
+      <DependentUpon>SportsFacilitiesModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Venue.cs">
-      <DependentUpon>SportsFacilityModel.tt</DependentUpon>
+      <DependentUpon>SportsFacilitiesModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BookingCompleteDialog.resx">
+      <DependentUpon>BookingCompleteDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookingConfirmationForm.resx">
+      <DependentUpon>BookingConfirmationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BookingForm.resx">
       <DependentUpon>BookingForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,15 +181,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Customer Search Screen.resx">
       <DependentUpon>Customer Search Screen.cs</DependentUpon>
+    <EmbeddedResource Include="CustomerSelectDialog.resx">
+      <DependentUpon>CustomerSelectDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MaintenanceForm.resx">
       <DependentUpon>MaintenanceForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ManageBookings.resx">
-      <DependentUpon>ManageBookings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -226,9 +227,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="SportsFacilityModel.edmx">
+    <EntityDeploy Include="SportsFacilitiesModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SportsFacilityModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>SportsFacilitiesModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="Sportsfacilities.xsc">
       <DependentUpon>Sportsfacilities.xsd</DependentUpon>
@@ -243,6 +244,8 @@
     </None>
     <None Include="SportsFacilityModel.edmx.diagram">
       <DependentUpon>SportsFacilityModel.edmx</DependentUpon>
+    <None Include="SportsFacilitiesModel.edmx.diagram">
+      <DependentUpon>SportsFacilitiesModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -250,15 +253,15 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SportsFacilityModel.Context.tt">
+    <Content Include="SportsFacilitiesModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SportsFacilityModel.edmx</DependentUpon>
-      <LastGenOutput>SportsFacilityModel.Context.cs</LastGenOutput>
+      <DependentUpon>SportsFacilitiesModel.edmx</DependentUpon>
+      <LastGenOutput>SportsFacilitiesModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="SportsFacilityModel.tt">
+    <Content Include="SportsFacilitiesModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SportsFacilityModel.edmx</DependentUpon>
-      <LastGenOutput>SportsFacilityModel.cs</LastGenOutput>
+      <DependentUpon>SportsFacilitiesModel.edmx</DependentUpon>
+      <LastGenOutput>SportsFacilitiesModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

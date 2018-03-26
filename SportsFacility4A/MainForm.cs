@@ -25,7 +25,7 @@ namespace SportsFacility4A
             BookingForm bookingForm = new BookingForm();
             bookingForm.Location = this.Location;
             bookingForm.StartPosition = FormStartPosition.Manual;
-            bookingForm.FormClosing += delegate { this.Show(); this.Close(); };
+            bookingForm.FormClosing += delegate { this.Show();};
             bookingForm.Show();
             this.Hide();
         }
