@@ -107,17 +107,17 @@
       <DependentUpon>demographic.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Help-FAQ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Help-FAQ.Designer.cs">
-      <DependentUpon>Help-FAQ.cs</DependentUpon>
-    </Compile>
     <Compile Include="CustomerSelectDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CustomerSelectDialog.Designer.cs">
       <DependentUpon>CustomerSelectDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FAQForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FAQForm.Designer.cs">
+      <DependentUpon>FAQForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MaintenanceForm.cs">
       <SubType>Form</SubType>
@@ -211,9 +211,6 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>demographic.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Help-FAQ.resx">
-      <DependentUpon>Help-FAQ.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="BookingList.resx">
       <DependentUpon>BookingList.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerSelectDialog.resx">
       <DependentUpon>CustomerSelectDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FAQForm.resx">
+      <DependentUpon>FAQForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

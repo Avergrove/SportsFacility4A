@@ -117,38 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="richTextBox1.Text" xml:space="preserve">
-    <value>Frequently Asked Questions
-
-* How to create a new member record?
-
-
-
-
-* How to search or update exisiting member record?
-
-
-
-
-
-* How to view facilities availability?
-
-
-
-* How to make facilities booking?
-
-
-
-* How to cancel facilities booking?
-
-
-
-*About Reports:
-
-	1) Customer List Report: It contains the information of all members
-	2) Booking Transactions Report: It summarises confirmed bookings of various facilities and booked hour.
-	3) Demograhpic Member Chart: It illustrates demographic distribution of members.
-
-</value>
-  </data>
 </root>

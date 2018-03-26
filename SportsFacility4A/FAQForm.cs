@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace SportsFacility4A
 {
-    public partial class Help_FAQ : Form
+    public partial class FAQForm : Form
     {
-        public Help_FAQ()
+        public FAQForm()
         {
             InitializeComponent();
+        }
+
+        private void ReturnButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
