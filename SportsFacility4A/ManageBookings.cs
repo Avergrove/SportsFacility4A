@@ -159,7 +159,9 @@ namespace SportsFacility4A
 
         private void mbclosebtn_Click(object sender, EventArgs e)
         {
-            Close();
+            MainForm mf = new MainForm();
+            mf.Show();
+            this.Close();
         }
     }
 }
