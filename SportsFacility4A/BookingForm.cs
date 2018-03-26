@@ -37,7 +37,7 @@ namespace SportsFacility4A
         public BookingForm(int customerId) : this()
         {
             this.customerId = customerId;
-            CustomerIdLabel.Text = this.customerId.ToString();
+            CustomerIdTextBox.Text = this.customerId.ToString();
             
         }
 
@@ -149,6 +149,31 @@ namespace SportsFacility4A
         {
             var selection = AvailabilityDataGrid.SelectedCells;
 
+            // Check whether id is valid first.
+            try
+            {
+                int i = Int32.Parse(CustomerIdTextBox.Text);
+                var testQuery = from x in context.Customers where x.CustomerID == i select x;
+                if (!testQuery.Any())
+                {
+                    throw (new Exception());
+                }
+
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show("Invalid Customer Id!");
+                return;
+            }
+
+
+
+
+
+
+
+
             // Get information for selected venue
             var query = from x in context.Availability
                                     join y in context.Venue
@@ -167,7 +192,7 @@ namespace SportsFacility4A
 
 
             // BookingConfirmationForm bookingConfirmationForm = new BookingConfirmationForm(v.venues.Category, v.venues.VenueName, v.venues.VenueAddress, GetTimeSlot(), DateTime.Now);
-            BookingConfirmationForm bookingConfirmationForm = new BookingConfirmationForm(v.venues.VenueID, Int32.Parse(CustomerIdLabel.Text), GetTimeSlot(), bookedTime, RemarkTextBox.Text);
+            BookingConfirmationForm bookingConfirmationForm = new BookingConfirmationForm(v.venues.VenueID, Int32.Parse(CustomerIdTextBox.Text), GetTimeSlot(), bookedTime, RemarkTextBox.Text);
             bookingConfirmationForm.Location = this.Location;
             bookingConfirmationForm.StartPosition = FormStartPosition.Manual;
             bookingConfirmationForm.FormClosing += delegate { this.Show(); this.RefreshAvailabilityDataGrid();};
@@ -180,33 +205,9 @@ namespace SportsFacility4A
 
         private void availabilityDataGrid_SelectionChanged(object sender, EventArgs e)
         {
-            var selection = AvailabilityDataGrid.CurrentCell;
-
-            bool parseResult;
-
-            try
-            {
-                Int32.Parse(CustomerIdLabel.Text);
-                parseResult = true;
-            }
-            catch(Exception ex)
-            {
-                parseResult = false;
-            }
-
-
-
-            if (selection.ColumnIndex > 0 && !selection.Value.Equals(BOOKING_OCCUPIED) && parseResult)
-            {
-                BookingButton.Enabled = true;
-                StatusLabel.Text = "Finally, Add a remark, or click \"Make a booking\"";
-            }
-
-            else
-            {
-                BookingButton.Enabled = false;
-            }
+            RefreshMakeABookingButton();
         }
+
 
 
 
@@ -309,6 +310,42 @@ namespace SportsFacility4A
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void CustomerIdLabel_TextChanged(object sender, EventArgs e)
+        {
+            RefreshMakeABookingButton();
+
+        }
+
+        // Utility: Validates and enable/disable the "Make a booking" button
+        private void RefreshMakeABookingButton()
+        {
+            var selection = AvailabilityDataGrid.CurrentCell;
+            bool parseResult;
+
+            try
+            {
+                Int32.Parse(CustomerIdTextBox.Text);
+                parseResult = true;
+            }
+            catch (Exception ex)
+            {
+                parseResult = false;
+            }
+
+
+            if (selection.ColumnIndex > 0 && !selection.Value.Equals(BOOKING_OCCUPIED) && parseResult)
+            {
+                BookingButton.Enabled = true;
+                StatusLabel.Text = "Finally, Add a remark, or click \"Make a booking\"";
+            }
+
+            else
+            {
+                BookingButton.Enabled = false;
+            }
 
         }
     }
