@@ -117,4 +117,143 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Frequently Asked Questions
+
+* How to create a new Customer?
+
+1. Click on the Customer Menu item under Maintenance.
+
+2. Enter all the details in the customer maintenance form.
+
+3. Click Create button to create a new Customer.
+
+
+
+* How to search or update existing Customer?
+
+Update the Customer:
+
+1. Click on the Customer Menu item under Maintenance.
+
+2. Get the details of the customer.
+
+3. Change the details that you need to update and click on update button.
+
+Search the Customer:
+
+1. For searching click on the button beside the customer id. This loads a page of Customers.
+
+2. Select the customer that you want to and click on ok button.
+
+3. To get the details of the particular customer.
+
+* How to view facilities availability?
+
+1. Click on Maintenance from the menu bar
+
+2. Click on "Booking" then "Create" from the menu dropdown lists
+
+3. Select Facility and Venue from the dropdown boxes to view the availability of the facilities.
+
+
+
+*How to create new/update facilities
+
+Create Facilites:
+
+1. Click on "Maintenance" from the menu bar
+
+2. Select "Venue" from the menu dropdown list
+
+3. Leave the Venue ID blank
+
+4. Key in the new venue information
+
+5. Click on "Create" button
+
+Update Facilities:
+
+1. Click on "Maintenance" from the menu bar
+
+2. Select "Venue" from the menu dropdown list
+
+3. Key in the Venue ID and click enter or click on the […] button and select the venue from the table.
+
+4. Information will be auto populated onto the screen.
+
+5. Edit the information and click on the "Update" Button
+
+
+
+* How to make new facilities booking?
+
+1. Click on "Maintenance" from the menu
+
+2. Select "Booking" from the menu dropdown list followed by "Create"
+
+3. Select Facility from Facility dropdown box
+
+4. Select Venue from Venue dropdown box
+
+5. Key in Customer ID
+
+6. Click on "Make a booking" button
+
+* How to manage/edit facilities booking?
+
+For cancellations:
+
+1. Select Maintenance from the menu
+
+2. Select "Booking" from the menu dropdown list followed by "Manage"
+
+3. On the form, select the booking's facility from the 'Facility' dropdown box
+
+4. Select the Venue from the Venue dropdown box
+
+5. Select the Booked Hour from the Timeslot dropdown box. Customer's name will appear once selected
+
+6. Press "Cancel Booking" button
+
+If successful, status bar will show the following message: "Update completed...".
+
+Alternatively, you can click on the […] button beside the Facility dropdown box to view all confirmed bookings and select a booking from there.
+
+For editing of existing bookings:
+
+1. Select Maintenance from the menu
+
+2. Click on "Booking" followed by "Manage" from the menu dropdown list.
+
+3. On the form, click on the […] button beside the Facility drop down box
+
+4. Click on the booking that you would like to edit from the grid
+
+5. After selecting the booking, click on the "Update" button
+
+6. Choose the timing you would to change to or select other facilities from the dropdown menu and select the available slots that you would like to update to
+
+7. Click on the "OK" button to submit changes.
+
+Note: Bookings can only be updated to timeslots that are "available". Otherwise, "OK" button will not be clickable.
+
+
+
+*Generate Reports:
+
+1. Select report on the menu bar
+
+2. Select the required report to be generated
+
+
+
+*About Reports:
+
+1) Customer List Report: It contains the information of all members
+
+2) Booking Transactions Report: It summarises confirmed bookings of various facilities and booked hour.
+
+3) Demograhpic Member Chart: It illustrates demographic distribution of members.</value>
+  </data>
 </root>
