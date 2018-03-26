@@ -26,7 +26,7 @@ namespace SportsFacility4A
         private void BookingsList_Load(object sender, EventArgs e)
         {
             bookinglistselCB.Text = "Confirmed";
-            SearchBox.Text = "[Enter Member Name...]";
+            SearchBox.Text = "[Enter Customer Name...]";
             RetrieveGrid();
         }
         //Retrieve grid based on selection in combobox
