@@ -117,8 +117,13 @@ namespace SportsFacility4A
 
 		private void Refreshbutton_Click(object sender, EventArgs e)
 		{
-			this.Hide();
+			
 			MaintenanceForm f1 = new MaintenanceForm();
+		    f1.Location = this.Location;
+			f1.StartPosition = FormStartPosition.Manual;
+			f1.FormClosing += delegate { this.Show(); this.Close(); };
+			f1.Show();
+			this.Hide();
 			f1.Show();
 		}
 
