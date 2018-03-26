@@ -128,7 +128,7 @@ namespace SportsFacility4A
         //update bookinginfo
         private void updatebk_okbtn_Click(object sender, EventArgs e)
         {
-            if (mb_availabilitygridview.CurrentCell.Value is bool && mb_availabilitygridview.CurrentCell.OwningColumn.HeaderText.ToString().Substring(1) != oldtimeslot)
+            if (mb_availabilitygridview.CurrentCell.Value is bool && mb_availabilitygridview.CurrentCell.Value is false)
             {
                 using (TransactionScope ts = new TransactionScope())
                 {
