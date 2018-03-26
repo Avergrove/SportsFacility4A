@@ -15,6 +15,7 @@ namespace SportsFacility4A
 		public Venue_Maintenance_Screen()
 		{
 			InitializeComponent();
+
 		}
 		public string Venueid
 		{

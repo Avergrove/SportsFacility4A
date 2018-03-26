@@ -46,6 +46,7 @@
 			this.Custdatagrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.Custdatagrid.Size = new System.Drawing.Size(767, 406);
 			this.Custdatagrid.TabIndex = 0;
+			this.Custdatagrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Custdatagrid_CellClick);
 			this.Custdatagrid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Custdatagrid_CellMouseDoubleClick);
 			// 
 			// searchtextbox

@@ -49,6 +49,7 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.Notes = new System.Windows.Forms.TextBox();
 			this.Refreshbutton = new System.Windows.Forms.Button();
+			this.Bookbutton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// CustNameTextbox
@@ -174,7 +175,7 @@
 			// 
 			// updatebutton
 			// 
-			this.updatebutton.Location = new System.Drawing.Point(686, 658);
+			this.updatebutton.Location = new System.Drawing.Point(543, 658);
 			this.updatebutton.Margin = new System.Windows.Forms.Padding(2);
 			this.updatebutton.Name = "updatebutton";
 			this.updatebutton.Size = new System.Drawing.Size(120, 50);
@@ -185,7 +186,7 @@
 			// 
 			// createbutton
 			// 
-			this.createbutton.Location = new System.Drawing.Point(485, 657);
+			this.createbutton.Location = new System.Drawing.Point(367, 658);
 			this.createbutton.Name = "createbutton";
 			this.createbutton.Size = new System.Drawing.Size(118, 50);
 			this.createbutton.TabIndex = 18;
@@ -240,7 +241,7 @@
 			// 
 			// Refreshbutton
 			// 
-			this.Refreshbutton.Location = new System.Drawing.Point(292, 657);
+			this.Refreshbutton.Location = new System.Drawing.Point(176, 658);
 			this.Refreshbutton.Name = "Refreshbutton";
 			this.Refreshbutton.Size = new System.Drawing.Size(94, 50);
 			this.Refreshbutton.TabIndex = 25;
@@ -248,11 +249,22 @@
 			this.Refreshbutton.UseVisualStyleBackColor = true;
 			this.Refreshbutton.Click += new System.EventHandler(this.Refreshbutton_Click);
 			// 
+			// Bookbutton
+			// 
+			this.Bookbutton.Location = new System.Drawing.Point(715, 658);
+			this.Bookbutton.Name = "Bookbutton";
+			this.Bookbutton.Size = new System.Drawing.Size(104, 49);
+			this.Bookbutton.TabIndex = 26;
+			this.Bookbutton.Text = "Book";
+			this.Bookbutton.UseVisualStyleBackColor = true;
+			this.Bookbutton.Click += new System.EventHandler(this.Bookbutton_Click);
+			// 
 			// MaintenanceForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(991, 719);
+			this.Controls.Add(this.Bookbutton);
 			this.Controls.Add(this.Refreshbutton);
 			this.Controls.Add(this.Notes);
 			this.Controls.Add(this.label4);
@@ -305,5 +317,6 @@
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.TextBox Notes;
 		private System.Windows.Forms.Button Refreshbutton;
+		private System.Windows.Forms.Button Bookbutton;
 	}
 }

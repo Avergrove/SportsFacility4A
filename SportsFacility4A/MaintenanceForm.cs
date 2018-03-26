@@ -15,7 +15,10 @@ namespace SportsFacility4A
         public MaintenanceForm()
         {
             InitializeComponent();
-        }
+			Status.Items.Add("Active");
+			Status.Items.Add("In Active");
+
+		}
 
 		public  string custid
 		{
@@ -126,12 +129,21 @@ namespace SportsFacility4A
 			{
 				var q = from x in context.Customers orderby x.CustomerID descending select x;
 				Customers c1 = q.First();
-				c.CustomerID = c1.CustomerID + 1;
+				//c.CustomerID = c1.CustomerID + 1;
 				c.CustomerName = CustNameTextbox.Text;
 				c.PhoneNumber = phonetextbox.Text;
 				c.CustomerAddress = addresstextbox.Text;
 				c.Email = emailtextbox.Text;
 				c.Age = Convert.ToInt32(agetextbox.Text);
+				if (c.Age >= 55)
+					c.MemberCategory = "A";
+				else if (c.Age >= 40 && c.Age < 55)
+					c.MemberCategory = "B";
+				else if (c.Age >= 30 && c.Age < 40)
+					c.MemberCategory = "C";
+				else
+					c.MemberCategory = "D";
+
 				if (Status.Text == "Active")
 					c.Status = Convert.ToBoolean(1);
 				else
@@ -169,6 +181,13 @@ namespace SportsFacility4A
 			}
 			context.SaveChanges();
 			MessageBox.Show("Update successful");
+		}
+
+		private void Bookbutton_Click(object sender, EventArgs e)
+		{
+			int id = Convert.ToInt32(CIDtextbox.Text);
+            BookingForm b = new BookingForm(id);
+			b.Show();
 		}
 	}
 }
