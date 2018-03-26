@@ -35,7 +35,7 @@ namespace SportsFacility4A
             MaintenanceForm maintenanceForm = new MaintenanceForm();
             maintenanceForm.Location = this.Location;
             maintenanceForm.StartPosition = FormStartPosition.Manual;
-            maintenanceForm.FormClosing += delegate { this.Show(); this.Close(); };
+            maintenanceForm.FormClosing += delegate { this.Show();};
             maintenanceForm.Show();
             this.Hide();
         }
@@ -59,21 +59,36 @@ namespace SportsFacility4A
         private void resetAvailabilityToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            var AvailabilityQuery = from x in context.Availability select x;
-            var availabilities = AvailabilityQuery.ToList<Availability>();
+		}
 
-            foreach(Availability a in availabilities)
-            {
-                a.C9am = false;
-                a.C10am = false;
-                a.C11am = false;
-                a.C12pm = false;
-                a.C1pm = false;
-                a.C2pm = false;
-                a.C3pm = false;
-                a.C4pm = false;
-                a.C5pm = false;
-            }
-        }
-    }
+		private void resetAvailabilityToolStripMenuItem_Click_1(object sender, EventArgs e)
+		{
+			MaintenanceForm c = new MaintenanceForm();
+			c.Show();
+		}
+
+		private void venueToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Venue_Maintenance_Screen v = new Venue_Maintenance_Screen();
+			v.Show();
+		}
+
+		private void manageToolStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			Managebookings mb = new Managebookings();
+			mb.ShowDialog();
+		}
+
+		private void createToolStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			BookingForm b = new BookingForm();
+			b.Show();
+		}
+
+		private void managebookingsbutton_Click(object sender, EventArgs e)
+		{
+			Managebookings mb = new Managebookings();
+			mb.ShowDialog();
+		}
+	}
 }
