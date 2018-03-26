@@ -111,6 +111,8 @@ namespace SportsFacility4A
                 context.BookingTransaction.Add(newBookingTransaction);
                 context.SaveChanges();
 
+                context = new SportsFacilitiesEntities();
+
                 // Update the availability table to show that the timeslot is occupied
                 var query = from x in context.Availability where venueID == x.VenueID select x;
                 Availability availability = query.First();
