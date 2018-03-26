@@ -28,7 +28,7 @@ namespace SportsFacility4A
             bookinglistselCB.Text = "Confirmed";
             RetrieveGrid();
         }
-
+        //Retrieve grid based on selection in combobox
         private void RetrieveGrid()
         {
             var q = from x in ctx.BookingTransaction
@@ -63,7 +63,7 @@ namespace SportsFacility4A
         }
 
 
-
+        //retrieve booking info when select button is clicked
         private void mb_okbtn_Click(object sender, EventArgs e)
         {
             if (bkinglistGridView.RowCount > 0)

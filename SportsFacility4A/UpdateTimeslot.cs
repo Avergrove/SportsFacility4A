@@ -90,14 +90,14 @@ namespace SportsFacility4A
                 mb_availabilitygridview.Columns[i].Width = 70;
             }
         }
-        //Retrieve data for newtimeslot
+        //Retrieve new booking info
         private void RetrieveData()
         {
             newtimeslot = mb_availabilitygridview.CurrentCell.OwningColumn.HeaderText.Substring(1);
             newvenuename = mb_availabilitygridview.CurrentRow.Cells[0].Value.ToString();
             newcategory = mb_availabilitygridview.CurrentRow.Cells[10].Value.ToString();
         }
-
+        //Prevent occupied cells from being selected
         private void mb_availabilitygridview_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             newhourtb.Text = "";
@@ -121,7 +121,7 @@ namespace SportsFacility4A
                 newcategorytb.Text = newcategory;
             }
         }
-
+        //update bookinginfo
         private void updatebk_okbtn_Click(object sender, EventArgs e)
         {
             using(TransactionScope ts = new TransactionScope())
@@ -198,7 +198,7 @@ namespace SportsFacility4A
                 ts.Complete();
             }    
         }
-
+        //If successful prompts messagebox
         private void Current_TransactionCompleted(object sender, TransactionEventArgs e)
         {
             if (e.Transaction.TransactionInformation.Status == TransactionStatus.Committed)
@@ -212,7 +212,7 @@ namespace SportsFacility4A
         {
             LoadGrid();
         }
-
+        //Change displayed value for cells with bool values 
         private void mb_availabilitygridview_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.Value is bool)

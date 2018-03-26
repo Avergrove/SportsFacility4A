@@ -33,7 +33,7 @@ namespace SportsFacility4A
             }
             toolStripStatusLabel1.Text = "...";
         }
-
+        //Venue Combobox display all venues that have bookings
         private void FacilityCB_SelectionChangeCommitted(object sender, EventArgs e)
         {
             toolStripStatusLabel1.Text = "...";
@@ -50,7 +50,8 @@ namespace SportsFacility4A
             }
 
         }
-
+        //Timeslot ComboBox display all timings that have been booked.
+        //Note: Time in combobox not sorted.
         private void VenueCB_SelectionChangeCommitted(object sender, EventArgs e)
         {
             TimeSlotCB.Items.Clear();
@@ -63,14 +64,14 @@ namespace SportsFacility4A
 
         }
 
-
+        //Display customer name in custname TextBox.
         private void TimeSlotCB_SelectionChangeCommitted(object sender, EventArgs e)
         {
             BookingTransaction selectedbooking = confirmedtimeslots.Where(x => x.BookedHour == TimeSlotCB.SelectedItem.ToString()).First();
             CustNameTextBox.Text = selectedbooking.Customers.CustomerName;
             BookingID = selectedbooking.BookingID.ToString();
         }
-
+        //Click button to view and select booking from list of bookings.
         private void cidsearch_Click(object sender, EventArgs e)
         {
             BookingList bklist = new BookingList();
