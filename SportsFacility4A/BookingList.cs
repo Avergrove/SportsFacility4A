@@ -28,6 +28,7 @@ namespace SportsFacility4A
             bookinglistselCB.Text = "Confirmed";
             SearchBox.Text = "[Enter Customer Name...]";
             RetrieveGrid();
+            bkinglistGridView.ClearSelection();
         }
         //Retrieve grid based on selection in combobox
         private void RetrieveGrid()
@@ -133,14 +134,11 @@ namespace SportsFacility4A
         
         private void RetrieveData()
         {
-            if (bkinglistGridView.RowCount > 0)
-            {
                 facility = bkinglistGridView.CurrentRow.Cells[1].Value.ToString();
                 venuename = bkinglistGridView.CurrentRow.Cells[2].Value.ToString();
                 custname = bkinglistGridView.CurrentRow.Cells[0].Value.ToString();
                 timeslot = bkinglistGridView.CurrentRow.Cells[5].Value.ToString();
                 bookingid = bkinglistGridView.CurrentRow.Cells[7].Value.ToString();
-            }
         }
 
         private void bkinglistGridView_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -44,7 +44,6 @@ namespace SportsFacility4A
                 Categorycb.Items.Add(category);
             }
             LoadGrid();
-
         }
 
         //Loadgrid based on Category ComboBox selection. Booked timeslots will be highlighted.
@@ -64,6 +63,7 @@ namespace SportsFacility4A
             {
                 if (mb_availabilitygridview.Rows[i].Cells[0].Value.ToString().Trim() == selectedvenuename.Trim())
                 {
+                    mb_availabilitygridview.Rows[i].Cells[0].Style.BackColor = System.Drawing.Color.LightBlue;
                     mb_availabilitygridview.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.LightYellow;
                     mb_availabilitygridview.Rows[i].Cells[10].Style.BackColor = System.Drawing.Color.LightBlue;
                 }
@@ -124,79 +124,82 @@ namespace SportsFacility4A
         //update bookinginfo
         private void updatebk_okbtn_Click(object sender, EventArgs e)
         {
-            using(TransactionScope ts = new TransactionScope())
+            if (mb_availabilitygridview.CurrentCell.Value is bool)
             {
-                RetrieveData();
-                Availability updateslot = ctx.Availability.Where(x => x.Venue.VenueName == selectedvenuename).First();
-                switch (oldtimeslot)
+                using (TransactionScope ts = new TransactionScope())
                 {
-                    case "9am":
-                        updateslot.C9am = false;
-                        break;
-                    case "10am":
-                        updateslot.C10am = false;
-                        break;
-                    case "11am":
-                        updateslot.C11am = false;
-                        break;
-                    case "12pm":
-                        updateslot.C12pm = false;
-                        break;
-                    case "1pm":
-                        updateslot.C1pm = false;
-                        break;
-                    case "2pm":
-                        updateslot.C2pm = false;
-                        break;
-                    case "3pm":
-                        updateslot.C3pm = false;
-                        break;
-                    case "4pm":
-                        updateslot.C4pm = false;
-                        break;
-                    case "5pm":
-                        updateslot.C5pm = false;
-                        break;
+                    RetrieveData();
+                    Availability updateslot = ctx.Availability.Where(x => x.Venue.VenueName == selectedvenuename).First();
+                    switch (oldtimeslot)
+                    {
+                        case "9am":
+                            updateslot.C9am = false;
+                            break;
+                        case "10am":
+                            updateslot.C10am = false;
+                            break;
+                        case "11am":
+                            updateslot.C11am = false;
+                            break;
+                        case "12pm":
+                            updateslot.C12pm = false;
+                            break;
+                        case "1pm":
+                            updateslot.C1pm = false;
+                            break;
+                        case "2pm":
+                            updateslot.C2pm = false;
+                            break;
+                        case "3pm":
+                            updateslot.C3pm = false;
+                            break;
+                        case "4pm":
+                            updateslot.C4pm = false;
+                            break;
+                        case "5pm":
+                            updateslot.C5pm = false;
+                            break;
+                    }
+                    Availability newslot = ctx.Availability.Where(x => x.Venue.VenueName == newvenuename).First();
+                    switch (newtimeslot)
+                    {
+                        case "9am":
+                            newslot.C9am = true;
+                            break;
+                        case "10am":
+                            newslot.C10am = true;
+                            break;
+                        case "11am":
+                            newslot.C11am = true;
+                            break;
+                        case "12pm":
+                            newslot.C12pm = true;
+                            break;
+                        case "1pm":
+                            newslot.C1pm = true;
+                            break;
+                        case "2pm":
+                            newslot.C2pm = true;
+                            break;
+                        case "3pm":
+                            newslot.C3pm = true;
+                            break;
+                        case "4pm":
+                            newslot.C4pm = true;
+                            break;
+                        case "5pm":
+                            newslot.C5pm = true;
+                            break;
+                    }
+                    BookingTransaction booking = ctx.BookingTransaction.Where(x => x.BookingID.ToString() == BookingID).First();
+                    Venue v = ctx.Venue.Where(x => x.VenueName == newvenuename).First();
+                    v.BookingTransaction.Add(booking);
+                    booking.BookedHour = newtimeslot;
+                    ctx.SaveChanges();
+                    Transaction.Current.TransactionCompleted += new TransactionCompletedEventHandler(Current_TransactionCompleted);
+                    ts.Complete();
                 }
-                Availability newslot = ctx.Availability.Where(x => x.Venue.VenueName == newvenuename).First();
-                switch (newtimeslot)
-                {
-                    case "9am":
-                        newslot.C9am = true;
-                        break;
-                    case "10am":
-                        newslot.C10am = true;
-                        break;
-                    case "11am":
-                        newslot.C11am = true;
-                        break;
-                    case "12pm":
-                        newslot.C12pm = true;
-                        break;
-                    case "1pm":
-                        newslot.C1pm = true;
-                        break;
-                    case "2pm":
-                        newslot.C2pm = true;
-                        break;
-                    case "3pm":
-                        newslot.C3pm = true;
-                        break;
-                    case "4pm":
-                        newslot.C4pm = true;
-                        break;
-                    case "5pm":
-                        newslot.C5pm = true;
-                        break;
-                }
-                BookingTransaction booking = ctx.BookingTransaction.Where(x => x.BookingID.ToString() == BookingID).First();
-                Venue v = ctx.Venue.Where(x=>x.VenueName==newvenuename).First();
-                v.BookingTransaction.Add(booking);
-                booking.BookedHour = newtimeslot;
-                ctx.SaveChanges();
-                Transaction.Current.TransactionCompleted += new TransactionCompletedEventHandler( Current_TransactionCompleted);
-                ts.Complete();
-            }    
+            }                
         }
         //If successful prompts messagebox
         private void Current_TransactionCompleted(object sender, TransactionEventArgs e)
