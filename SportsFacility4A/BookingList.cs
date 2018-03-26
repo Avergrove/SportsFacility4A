@@ -33,11 +33,9 @@ namespace SportsFacility4A
         private void RetrieveGrid()
         {
             var q = from x in ctx.BookingTransaction
-                    join y in ctx.Customers on x.CustomerID equals y.CustomerID
-                    join z in ctx.Venue on x.VenueID equals z.VenueID
                     where x.BookedDate > DateTime.Today.Date
                     select new
-                    { y.CustomerName, z.Category, z.VenueName, x.DateCreated, x.BookedDate, x.BookedHour, x.Status, x.BookingID, x.Remark,};
+                    { x.Customers.CustomerName, x.Venue.Category, x.Venue.VenueName, x.DateCreated, x.BookedDate, x.BookedHour, x.Status, x.BookingID, x.Remark,};
             
             if (bookinglistselCB.Text == "Confirmed" || bookinglistselCB.SelectedItem.ToString() == "Confirmed")
             {
@@ -51,9 +49,8 @@ namespace SportsFacility4A
                 mb_updatebtn.Visible = false;
                 mb_okbtn.Visible = false;
             }
-            bkinglistGridView.DefaultCellStyle.SelectionForeColor = bkinglistGridView.DefaultCellStyle.ForeColor;
-            bkinglistGridView.DefaultCellStyle.SelectionBackColor = bkinglistGridView.DefaultCellStyle.BackColor;
-            for(int i=1; i < bkinglistGridView.ColumnCount; i++)
+
+            for (int i=1; i < bkinglistGridView.ColumnCount; i++)
             {
                 bkinglistGridView.Columns[i].Width = 70;
             }
@@ -79,6 +76,7 @@ namespace SportsFacility4A
 
         private void bookinglistselCB_SelectedValueChanged(object sender, EventArgs e)
         {
+            SearchBox.Text = "[Enter Customer Name...]";
             RetrieveGrid();
         }
 
@@ -103,13 +101,15 @@ namespace SportsFacility4A
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            var q = from x in ctx.BookingTransaction
-                    join y in ctx.Customers on x.CustomerID equals y.CustomerID
-                    join z in ctx.Venue on x.VenueID equals z.VenueID
-                    where x.BookedDate > DateTime.Today.Date && (x.Status==bookinglistselCB.SelectedItem.ToString() || x.Status==bookinglistselCB.Text)
-                    select new
-                    { y.CustomerName, z.Category, z.VenueName, x.DateCreated, x.BookedDate, x.BookedHour, x.Status, x.BookingID, x.Remark, };
-            bkinglistGridView.DataSource = q.Where(x => x.CustomerName.Contains(SearchBox.Text)).ToList();
+            if(bookinglistselCB.Text.ToLower().Trim()=="cancelled"|| bookinglistselCB.Text.ToLower().Trim() == "confirmed")
+            {
+                var q = from x in ctx.BookingTransaction
+                        where x.BookedDate > DateTime.Today.Date && (x.Status == bookinglistselCB.SelectedItem.ToString() || x.Status == bookinglistselCB.Text.Trim())
+                        select new
+                        { x.Customers.CustomerName, x.Venue.Category, x.Venue.VenueName, x.DateCreated, x.BookedDate, x.BookedHour, x.Status, x.BookingID, x.Remark, };
+
+                bkinglistGridView.DataSource = q.Where(x => x.CustomerName.Contains(SearchBox.Text)).ToList();
+            }
         }
 
         private void SearchBox_MouseClick(object sender, MouseEventArgs e)
@@ -145,8 +145,6 @@ namespace SportsFacility4A
 
         private void bkinglistGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            bkinglistGridView.RowsDefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            bkinglistGridView.RowsDefaultCellStyle.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             RetrieveData();
         }
     }
