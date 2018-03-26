@@ -78,6 +78,12 @@
     <Compile Include="BookingTransaction.cs">
       <DependentUpon>SportsFacilitiesModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Customer Search Screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer Search Screen.Designer.cs">
+      <DependentUpon>Customer Search Screen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customers.cs">
       <DependentUpon>SportsFacilitiesModel.tt</DependentUpon>
     </Compile>
@@ -122,6 +128,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SportsFacilitiesModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Venue Maintenance Screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Venue Maintenance Screen.Designer.cs">
+      <DependentUpon>Venue Maintenance Screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Venue Search Screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Venue Search Screen.Designer.cs">
+      <DependentUpon>Venue Search Screen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Venue.cs">
       <DependentUpon>SportsFacilitiesModel.tt</DependentUpon>
     </Compile>
@@ -133,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BookingForm.resx">
       <DependentUpon>BookingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer Search Screen.resx">
+      <DependentUpon>Customer Search Screen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerSelectDialog.resx">
       <DependentUpon>CustomerSelectDialog.cs</DependentUpon>
@@ -152,6 +173,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Venue Maintenance Screen.resx">
+      <DependentUpon>Venue Maintenance Screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Venue Search Screen.resx">
+      <DependentUpon>Venue Search Screen.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.Config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
