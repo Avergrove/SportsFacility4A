@@ -28,6 +28,7 @@ namespace SportsFacility4A
         public Nullable<int> Age { get; set; }
         public string Notes { get; set; }
         public string MemberCategory { get; set; }
+        public Nullable<bool> Status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BookingTransaction> BookingTransaction { get; set; }

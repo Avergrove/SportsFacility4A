@@ -25,7 +25,7 @@ namespace SportsFacility4A
             BookingForm bookingForm = new BookingForm();
             bookingForm.Location = this.Location;
             bookingForm.StartPosition = FormStartPosition.Manual;
-            bookingForm.FormClosing += delegate { this.Show(); this.Close(); };
+            bookingForm.FormClosing += delegate { this.Show();};
             bookingForm.Show();
             this.Hide();
         }
@@ -35,18 +35,18 @@ namespace SportsFacility4A
             MaintenanceForm maintenanceForm = new MaintenanceForm();
             maintenanceForm.Location = this.Location;
             maintenanceForm.StartPosition = FormStartPosition.Manual;
-            maintenanceForm.FormClosing += delegate { this.Show(); this.Close(); };
+            maintenanceForm.FormClosing += delegate { this.Show();};
             maintenanceForm.Show();
             this.Hide();
         }
 
         private void Main_ReportButton_Click(object sender, EventArgs e)
         {
-            ReportForm reportForm = new ReportForm();
-            reportForm.Location = this.Location;
-            reportForm.StartPosition = FormStartPosition.Manual;
-            reportForm.FormClosing += delegate { this.Show(); this.Close(); };
-            reportForm.Show();
+            ReportGenerationForm reportGenerationForm = new ReportGenerationForm();
+            reportGenerationForm.Location = this.Location;
+            reportGenerationForm.StartPosition = FormStartPosition.Manual;
+            reportGenerationForm.FormClosing += delegate { this.Show();};
+            reportGenerationForm.Show();
             this.Hide();
         }
 
